@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import { calculateHue } from "./helper";
-import { HslColor } from "../../typings";
+import { HslColor } from "../../types";
 
 import * as styles from "./Hue.style";
 

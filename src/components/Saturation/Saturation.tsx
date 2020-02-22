@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import { calculateSaturation } from "./helper";
-import { HslColor, HsvColor } from "../../typings";
+import { HslColor, HsvColor } from "../../types";
 import * as styles from "./Saturation.style";
 
 interface SaturationProps {

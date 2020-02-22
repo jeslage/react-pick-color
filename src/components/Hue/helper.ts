@@ -1,4 +1,4 @@
-import { HslColor } from "../../typings";
+import { HslColor } from "../../types";
 
 export const calculateHue = (e: any, hsl: HslColor, container: HTMLElement) => {
   const x = e.touches ? e.touches[0].pageX : e.pageX;

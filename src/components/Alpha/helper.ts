@@ -1,4 +1,4 @@
-import { AlphaType } from "../../typings";
+import { AlphaType } from "../../types";
 
 export const calculateAlpha = (
   e: any,

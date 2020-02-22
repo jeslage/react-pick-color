@@ -1,6 +1,6 @@
 import CSS from "csstype";
 
-import { HslColor } from "../../typings";
+import { HslColor } from "../../types";
 
 export const container: CSS.Properties = {
   margin: "15px 0",

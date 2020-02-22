@@ -1,6 +1,6 @@
 import CSS from "csstype";
 
-import { HslColor, HsvColor } from "../../typings";
+import { HslColor, HsvColor } from "../../types";
 
 export const gradient: CSS.Properties = {
   position: "absolute",

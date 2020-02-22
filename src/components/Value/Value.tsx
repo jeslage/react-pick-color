@@ -2,7 +2,7 @@ import React from "react";
 
 import * as styles from "./Value.style";
 
-import { RgbColor } from "../../typings";
+import { RgbColor } from "../../types";
 
 interface ValueProps {
   rgb: RgbColor;

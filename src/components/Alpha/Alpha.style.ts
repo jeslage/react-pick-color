@@ -1,6 +1,6 @@
 import CSS from "csstype";
 
-import { RgbColor } from "../../typings";
+import { RgbColor } from "../../types";
 
 export const container: CSS.Properties = {
   margin: "15px 0",

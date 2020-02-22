@@ -4,12 +4,14 @@
   "main": "build/index.js",
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
+  "types": "build/types.d.ts",
   "files": [
     "build"
   ],
   "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
-    "build": "rollup -c",
+    "clean": "rm -rf build",
+    "build": "yarn clean && rollup -c",
     "test": "jest",
     "test:once": "jest",
     "storybook": "start-storybook -p 6006",

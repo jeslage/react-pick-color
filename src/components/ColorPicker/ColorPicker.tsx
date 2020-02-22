@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import tinycolor from "tinycolor2";
 
-import {
-  Color,
-  HslColor,
-  ColorObject,
-  AlphaType,
-  HsvColor
-} from "../../typings";
+import { Color, HslColor, ColorObject, AlphaType, HsvColor } from "../../types";
 
 import { initColor } from "./helper";
 

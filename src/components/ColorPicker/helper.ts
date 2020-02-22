@@ -1,6 +1,6 @@
 import tinycolor from "tinycolor2";
 
-import { Color, ColorObject } from "../../typings";
+import { Color, ColorObject } from "../../types";
 
 export const initColor = (initialColor: Color): ColorObject => {
   const color = tinycolor(initialColor);

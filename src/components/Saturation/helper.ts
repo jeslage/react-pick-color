@@ -1,4 +1,4 @@
-import { HslColor, HsvColor } from "../../typings";
+import { HslColor, HsvColor } from "../../types";
 
 export const calculateSaturation = (
   e: any,

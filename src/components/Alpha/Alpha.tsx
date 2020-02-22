@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 import { calculateAlpha } from "./helper";
-import { RgbColor, AlphaType } from "../../typings";
+import { RgbColor, AlphaType } from "../../types";
 
 import * as styles from "./Alpha.style";
 

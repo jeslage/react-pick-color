@@ -4,7 +4,7 @@ import tinycolor from "tinycolor2";
 
 import * as styles from "./ColorList.style";
 
-import { RgbColor, Color } from "../../typings";
+import { RgbColor, Color } from "../../types";
 
 interface ColorListProps {
   colors: Color[];

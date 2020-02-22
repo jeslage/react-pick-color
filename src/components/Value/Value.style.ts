@@ -1,4 +1,4 @@
-import { RgbColor } from "../../typings";
+import { RgbColor } from "../../types";
 
 import CSS from "csstype";
 
