@@ -1,5 +1,4 @@
 import { RgbColor } from "../../typings";
-import { getColorString } from "../../helper";
 
 import CSS from "csstype";
 
@@ -22,7 +21,7 @@ export const button: CSS.Properties = {
 
 export const value = (color: RgbColor): CSS.Properties => ({
   position: "absolute",
-  background: getColorString(color),
+  background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
   top: "0px",
   right: "0px",
   bottom: "0px",

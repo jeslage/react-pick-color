@@ -13,19 +13,19 @@ export const Init = () => {
       color={color}
       colors={[
         { r: 0, g: 0, b: 0, a: 0.1 },
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "crimson",
+        "grey",
+        "lightgrey",
+        "white",
         "#000",
-        "#fff",
-        "#000",
-        "#fff",
-        "#000",
-        "#fff",
-        "#000",
-        "#fff",
-        "#000",
-        "#fff",
-        "#000",
-        "#fff",
-        "#000"
+        "purple",
+        "papayawhip",
+        "lightgreen",
+        "pink"
       ]}
       onChange={color => setColor(color.hex)}
     />

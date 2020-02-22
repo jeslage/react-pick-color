@@ -1,10 +1,10 @@
 import { RgbColor } from "../../typings";
-import { getColorString } from "../../helper";
+
 import CSS from "csstype";
 
 export const value = (color: RgbColor): CSS.Properties => ({
   position: "relative",
-  background: getColorString(color),
+  background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
   width: "16px",
   height: "16px",
   borderRadius: "10px",
