@@ -1,17 +1,16 @@
 import CSS from "csstype";
 
 export const container = (width?: string): CSS.Properties => ({
-  overflow: "hidden",
   background: "#fff",
   boxShadow: "rgba(0, 0, 0, 0.15) 0px 4px 8px",
   borderRadius: "5px",
-  width: width || "250px",
-  minWidth: "250px"
+  width: width || "300px",
+  minWidth: "300px"
 });
 
 export const flex: CSS.Properties = {
-  margin: "0 0.8rem",
-  width: "calc(100% - 1.6rem)",
+  margin: "0.5rem 1.2rem",
+  width: "calc(100% - 2.4rem)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

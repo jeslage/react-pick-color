@@ -14,22 +14,25 @@ export const color = (hsl: HslColor): CSS.Properties => ({
   width: "100%",
   height: "200px",
   position: "relative",
-  background: `hsl(${hsl.h},100%, 50%)`
+  background: `hsl(${hsl.h},100%, 50%)`,
+  borderRadius: "5px"
 });
 
 export const pointer = (hsv: HsvColor): CSS.Properties => ({
   position: "absolute",
-  top: `${-(hsv.v * 100) + 100}%`,
-  left: `${hsv.s * 100}%`,
+  top: `calc(${-(hsv.v * 100) + 100}% - 10px)`,
+  left: `calc(${hsv.s * 100}% - 10px)`,
   cursor: "default"
 });
 
-export const circle: CSS.Properties = {
-  width: "10px",
-  height: "10px",
-  boxShadow: `0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-        0 0 1px 2px rgba(0,0,0,.4)`,
-  borderRadius: "50%",
-  cursor: "hand",
-  transform: "translate(-5px, -5px)"
+export const circle = (hex: string): CSS.Properties => {
+  return {
+    width: "16px",
+    borderRadius: "16px",
+    height: "16px",
+    background: hex,
+    boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
+    border: "2px solid #fff",
+    cursor: "hand"
+  };
 };

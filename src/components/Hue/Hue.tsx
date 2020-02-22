@@ -42,7 +42,7 @@ const Hue: React.FC<HueProps> = ({ hsl, onChange }) => {
       onTouchStart={e => handleChange(e)}
     >
       <div style={styles.pointer(hsl)}>
-        <div style={styles.slider} />
+        <div style={styles.slider(hsl)} />
       </div>
     </div>
   );

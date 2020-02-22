@@ -7,10 +7,11 @@ import * as styles from "./Saturation.style";
 interface SaturationProps {
   hsl: HslColor;
   hsv: HsvColor;
+  hex: string;
   onChange?: (color: HsvColor) => void;
 }
 
-const Saturation: React.FC<SaturationProps> = ({ hsl, hsv, onChange }) => {
+const Saturation: React.FC<SaturationProps> = ({ hsl, hsv, hex, onChange }) => {
   const container = useRef<HTMLDivElement>(null);
 
   const handleChange = (
@@ -54,7 +55,7 @@ const Saturation: React.FC<SaturationProps> = ({ hsl, hsv, onChange }) => {
       <div style={styles.gradient} className="saturation-white">
         <div style={styles.gradient} className="saturation-black" />
         <div style={styles.pointer(hsv)}>
-          <div style={styles.circle} />
+          <div style={styles.circle(hex)} />
         </div>
       </div>
     </div>

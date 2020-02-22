@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Hue from "../components/Hue/Hue";
+import Hue from "../src/components/Hue/Hue";
 
 export default {
   title: "Hue"

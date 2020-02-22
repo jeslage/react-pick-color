@@ -44,7 +44,7 @@ const Alpha: React.FC<AlphaProps> = ({ rgb, onChange }) => {
       <div style={styles.alpha(rgb)} />
       <div style={styles.checkboard} />
       <div style={styles.pointer(rgb)}>
-        <div style={styles.slider} />
+        <div style={styles.slider(rgb)} />
       </div>
     </div>
   );

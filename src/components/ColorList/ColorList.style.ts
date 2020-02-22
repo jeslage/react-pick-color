@@ -3,20 +3,25 @@ import { RgbColor } from "../../types";
 import CSS from "csstype";
 
 export const container: CSS.Properties = {
-  padding: "0.5rem 0 0.5rem 0.5rem",
-  borderTop: "1px solid #f4f4f4"
+  padding: "1.2rem",
+  borderTop: "1px solid #f4f4f4",
+  display: "grid",
+  gridTemplateColumns: "repeat(9, 1fr)",
+  gridGap: "10px"
 };
 
 export const button: CSS.Properties = {
-  width: "16px",
-  height: "16px",
-  margin: "0 0.5rem 0.5rem 0",
+  height: "20px",
+  margin: "0",
   boxShadow: "0 0 2px rgba(0, 0, 0, .2)",
   outline: "none",
   border: "none",
   cursor: "pointer",
   padding: "0",
-  position: "relative"
+  borderRadius: "5px",
+  overflow: "hidden",
+  position: "relative",
+  gridColumnEnd: "span 1"
 };
 
 export const value = (color: RgbColor): CSS.Properties => ({

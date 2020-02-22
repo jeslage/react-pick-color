@@ -69,11 +69,11 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     }));
   };
 
-  const { rgb, hsl, hsv } = col;
+  const { rgb, hsl, hsv, hex } = col;
 
   return (
     <div style={styles.container(width)}>
-      <Saturation hsl={hsl} hsv={hsv} onChange={updateSaturation} />
+      <Saturation hsl={hsl} hsv={hsv} hex={hex} onChange={updateSaturation} />
       <div style={styles.flex}>
         <Value rgb={rgb} />
         <div style={styles.ranges}>

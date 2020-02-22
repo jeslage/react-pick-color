@@ -8,10 +8,12 @@ export default {
 export const Init = () => {
   const [color, setColor] = useState({
     hsl: { h: 0, s: 0, l: 0, a: 1 },
-    hsv: { h: 0, s: 0, v: 0, a: 1 }
+    hsv: { h: 0, s: 0, v: 0, a: 1 },
+    hex: "#000"
   });
   return (
     <Saturation
+      hex={color.hex}
       hsl={color.hsl}
       hsv={color.hsv}
       onChange={color => setColor(prev => ({ ...prev, hsv: color }))}
