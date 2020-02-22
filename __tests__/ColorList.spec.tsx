@@ -2,7 +2,7 @@ import "jest";
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import ColorList from "../components/ColorList/ColorList";
+import ColorList from "../src/components/ColorList/ColorList";
 
 describe("ColorList", () => {
   it("ColorList should render correctly", () => {

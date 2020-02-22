@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Alpha from "../components/Alpha/Alpha";
+import Alpha from "../src/components/Alpha/Alpha";
 
 export default {
   title: "Alpha"

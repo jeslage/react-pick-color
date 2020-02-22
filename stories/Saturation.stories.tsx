@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Saturation from "../components/Saturation/Saturation";
+import Saturation from "../src/components/Saturation/Saturation";
 
 export default {
   title: "Saturation"

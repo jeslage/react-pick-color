@@ -2,7 +2,7 @@ import "jest";
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import ColorPicker from "../components/ColorPicker/ColorPicker";
+import ColorPicker from "../src/components/ColorPicker/ColorPicker";
 
 describe("ColorPicker", () => {
   it("ColorPicker should render correctly", () => {
