@@ -8,10 +8,10 @@ import { initColor } from "./helper";
 import Hue from "../Hue/Hue";
 import Alpha from "../Alpha/Alpha";
 import Value from "../Value/Value";
+import ColorList from "../ColorList/ColorList";
 import Saturation from "../Saturation/Saturation";
 
 import * as styles from "./ColorPicker.style";
-import ColorList from "../ColorList/ColorList";
 
 interface ColorPickerProps {
   color: Color;
@@ -19,6 +19,7 @@ interface ColorPickerProps {
   onChange?: (color: ColorObject) => void;
   disableAlpha?: boolean;
   width?: string;
+  className?: string;
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
@@ -26,7 +27,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   colors,
   onChange,
   width,
-  disableAlpha
+  disableAlpha,
+  className
 }) => {
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
@@ -71,7 +73,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   const { rgb, hsl, hsv, hex } = col;
 
   return (
-    <div style={styles.container(width)}>
+    <div style={styles.container(width)} className={className}>
       <Saturation hsl={hsl} hsv={hsv} hex={hex} onChange={updateSaturation} />
       <div style={styles.flex}>
         <Value rgb={rgb} />

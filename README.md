@@ -4,7 +4,7 @@
 
 ```js
 import React, { useState } from "react";
-import ColorPicker from "react-color";
+import ColorPicker from "react-pick-color";
 
 const App = () => {
   const [color, setColor] = useState("#fff");
