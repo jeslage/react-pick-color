@@ -1,8 +1,8 @@
 # React Pick Color
 
-![Screenshot](./assets/colorpicker.png)
+Small color picker component for react written in TypeScript.
 
-Small (only 7kb gziped) color picker component for react.
+![Screenshot](./assets/colorpicker.png)
 
 **Install package**
 
@@ -25,29 +25,29 @@ const App = () => {
 };
 ```
 
-## Options
+### Options
 
-### `color`
+**`color`**
 
 `string | { r: number, g: number, b: number, a: number } | { h: number, s: number, l: number, a: number }` | required
 
 The initial color as a hex string or rgba/hsla object.
 
-### `onChange`
+**`onChange`**
 
 `(color: { hex: string, rgb: object, hsl: object, alpha: number }) => void` | optional
 
 onChange callback with the current color object.
 
-### `colorSets`
+**`colorSets`**
 
 `array` | optional
 
-### `showCombination`
+**`showCombination`**
 
 `string` | optional
 
-### `disableAlpha`
+**`disableAlpha`**
 
 `boolean` | optional | default: `false`
 
