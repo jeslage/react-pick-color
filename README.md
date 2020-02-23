@@ -12,3 +12,31 @@ const App = () => {
   return <ColorPicker color={color} onChange={color => setColor(color.hex)} />;
 };
 ```
+
+## Options
+
+### `color`
+
+`string | { r: number, g: number, b: number, a: number } | { h: number, s: number, l: number, a: number }` | required
+
+The initial color as a hex string or rgba/hsla object.
+
+### `onChange`
+
+`(color: { hex: string, rgb: object, hsl: object, alpha: number }) => void` | optional
+
+onChange callback with the current color object.
+
+### `colorSets`
+
+`array` | optional
+
+### `showCombination`
+
+`string` | optional
+
+### `disableAlpha`
+
+`boolean` | optional | default: `false`
+
+Disable the alpha range handler.
