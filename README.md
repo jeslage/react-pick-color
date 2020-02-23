@@ -1,4 +1,4 @@
-# React Colorpicker
+# React Pick Color
 
 ![Screenshot](./assets/colorpicker.png)
 

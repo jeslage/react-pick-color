@@ -1,5 +1,5 @@
 {
-  "name": "@jeslage/react-colorpicker",
+  "name": "react-pick-color",
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
