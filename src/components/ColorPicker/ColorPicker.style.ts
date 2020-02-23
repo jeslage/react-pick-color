@@ -1,11 +1,12 @@
 import CSS from "csstype";
 
 export const container = (width?: string): CSS.Properties => ({
-  background: "#fff",
-  boxShadow: "rgba(0, 0, 0, 0.15) 0px 4px 8px",
+  background: "#ffffff",
+  boxShadow: " 0px 0px 8px 2px rgba(0, 0, 0, 0.15)",
   borderRadius: "5px",
   width: width || "300px",
-  minWidth: "300px"
+  minWidth: "300px",
+  border: "1px solid #f4f4f4"
 });
 
 export const flex: CSS.Properties = {
@@ -19,7 +20,7 @@ export const flex: CSS.Properties = {
 
 export const ranges: CSS.Properties = {
   flexGrow: 2,
-  marginLeft: "1rem"
+  marginLeft: "20px"
 };
 
 export const colors: CSS.Properties = {

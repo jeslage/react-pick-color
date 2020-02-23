@@ -32,7 +32,7 @@ export const slider = (rgb: RgbColor): CSS.Properties => ({
   borderRadius: "16px",
   height: "16px",
   boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
-  border: "2px solid #fff",
+  border: "2px solid #ffffff",
   transform: "translate(-8px, -4px)",
   cursor: "pointer",
   background: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${rgb.a})`

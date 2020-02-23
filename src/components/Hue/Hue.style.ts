@@ -24,7 +24,7 @@ export const slider = (hsl: HslColor): CSS.Properties => ({
   height: "16px",
   background: `hsl(${hsl.h}, 100%, 50%)`,
   boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
-  border: "2px solid #fff",
+  border: "2px solid #ffffff",
   transform: "translate(-8px, -4px)",
   cursor: "pointer"
 });

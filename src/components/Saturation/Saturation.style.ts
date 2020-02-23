@@ -11,11 +11,12 @@ export const gradient: CSS.Properties = {
 };
 
 export const color = (hsl: HslColor): CSS.Properties => ({
-  width: "100%",
+  width: "calc(100% - 10px)",
   height: "200px",
   position: "relative",
   background: `hsl(${hsl.h},100%, 50%)`,
-  borderRadius: "5px"
+  borderRadius: "5px",
+  margin: "5px"
 });
 
 export const pointer = (hsv: HsvColor): CSS.Properties => ({
@@ -32,7 +33,7 @@ export const circle = (hex: string): CSS.Properties => {
     height: "16px",
     background: hex,
     boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
-    border: "2px solid #fff",
+    border: "2px solid #ffffff",
     cursor: "hand"
   };
 };

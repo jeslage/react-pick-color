@@ -28,7 +28,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   width,
   disableAlpha
 }) => {
-  console.log(colors);
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
   useEffect(() => {
@@ -36,24 +35,24 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   }, [col]);
 
   const updateHue = (hsl: HslColor) => {
-    const col = tinycolor({ h: hsl.h, s: hsl.s, l: hsl.l });
+    const color = tinycolor({ h: hsl.h, s: hsl.s, l: hsl.l });
 
     setCol({
-      hsl,
-      rgb: { ...col.toRgb(), a: hsl.a },
-      hex: col.toHexString(),
-      hsv: col.toHsv(),
+      hsl: { ...col.hsl, h: hsl.h },
+      rgb: { ...color.toRgb(), a: hsl.a },
+      hex: color.toHexString(),
+      hsv: { ...col.hsv, h: color.toHsv().h },
       alpha: hsl.a
     });
   };
 
   const updateSaturation = (hsv: HsvColor) => {
-    const col = tinycolor({ h: hsv.h, s: hsv.s, v: hsv.v });
+    const color = tinycolor({ h: hsv.h, s: hsv.s, v: hsv.v });
 
     setCol({
-      hsl: { ...col.toHsl(), a: hsv.a },
-      rgb: { ...col.toRgb(), a: hsv.a },
-      hex: col.toHexString(),
+      hsl: { ...color.toHsl(), h: hsl.h, a: hsv.a },
+      rgb: { ...color.toRgb(), a: hsv.a },
+      hex: color.toHexString(),
       hsv,
       alpha: hsv.a
     });

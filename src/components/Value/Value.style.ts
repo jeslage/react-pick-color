@@ -8,7 +8,7 @@ export const container: CSS.Properties = {
   height: "30px",
   borderRadius: "5px",
   overflow: "hidden",
-  boxShadow: "0 0 2px rgba(0, 0, 0, .2)"
+  boxShadow: "0 0 3px 1px rgba(0, 0, 0, .3)"
 };
 
 export const value = (color: RgbColor): CSS.Properties => ({

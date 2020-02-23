@@ -2,3 +2,4 @@ node_modules/
 build/
 __snapshots__
 coverage
+yarn-error.log

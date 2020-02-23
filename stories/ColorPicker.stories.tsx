@@ -6,7 +6,7 @@ export default {
 };
 
 export const Init = () => {
-  const [color, setColor] = useState("#f4f4f4");
+  const [color, setColor] = useState("#ffffff");
 
   return (
     <div style={{ margin: "40px" }}>

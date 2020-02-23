@@ -13,7 +13,7 @@ export const container: CSS.Properties = {
 export const button: CSS.Properties = {
   height: "20px",
   margin: "0",
-  boxShadow: "0 0 2px rgba(0, 0, 0, .2)",
+  boxShadow: "0 0 3px 1px rgba(0, 0, 0, .2)",
   outline: "none",
   border: "none",
   cursor: "pointer",
