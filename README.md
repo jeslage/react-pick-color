@@ -1,6 +1,6 @@
 # React Colorpicker
 
-![Screenshot](./assets/screenshot.png)
+![Screenshot](./assets/colorpicker.png)
 
 ```js
 import React, { useState } from "react";
