@@ -25,7 +25,6 @@ const ColorList: React.FC<ColorListProps> = ({ colors, onClick }) => (
 
       return (
         <button
-          key={JSON.stringify(color)}
           style={styles.button}
           onClick={() => onClick(rgb)}
           type="button"

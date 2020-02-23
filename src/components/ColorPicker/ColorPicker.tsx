@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import tinycolor from "tinycolor2";
 
-import { Color, HslColor, ColorObject, AlphaType, HsvColor } from "../../types";
+import {
+  Color,
+  HslColor,
+  ColorObject,
+  AlphaType,
+  HsvColor,
+  ColorCombination
+} from "../../types";
 
-import { initColor } from "./helper";
+import { initColor, getColorCombination } from "./helper";
 
 import Hue from "../Hue/Hue";
 import Alpha from "../Alpha/Alpha";
@@ -15,20 +22,22 @@ import * as styles from "./ColorPicker.style";
 
 interface ColorPickerProps {
   color: Color;
-  colors?: Color[];
+  colorSet?: Color[];
   onChange?: (color: ColorObject) => void;
   disableAlpha?: boolean;
+  showCombination?: ColorCombination;
   width?: string;
   className?: string;
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
   color,
-  colors,
+  colorSet,
   onChange,
   width,
   disableAlpha,
-  className
+  className,
+  showCombination
 }) => {
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
@@ -82,8 +91,14 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
           {!disableAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
         </div>
       </div>
-      {colors && (
-        <ColorList colors={colors} onClick={val => setCol(initColor(val))} />
+      {colorSet && (
+        <ColorList colors={colorSet} onClick={val => setCol(initColor(val))} />
+      )}
+      {showCombination && (
+        <ColorList
+          colors={getColorCombination(col, showCombination)}
+          onClick={val => setCol(initColor(val))}
+        />
       )}
     </div>
   );

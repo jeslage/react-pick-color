@@ -23,7 +23,7 @@ export const Init = () => {
       <div style={{ margin: "40px" }}>
         <ColorPicker
           color={color}
-          colors={[
+          colorSet={[
             { r: 0, g: 0, b: 0, a: 0.1 },
             "red",
             "blue",
@@ -39,6 +39,13 @@ export const Init = () => {
             "lightgreen",
             "pink"
           ]}
+          onChange={color => setColor(color.hex)}
+        />
+      </div>
+      <div style={{ margin: "40px" }}>
+        <ColorPicker
+          color={color}
+          showCombination="monochromatic"
           onChange={color => setColor(color.hex)}
         />
       </div>

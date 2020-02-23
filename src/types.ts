@@ -12,3 +12,11 @@ export type ColorObject = {
   hsv: HsvColor;
   alpha: AlphaType;
 };
+
+export type ColorCombination =
+  | "analogous"
+  | "monochromatic"
+  | "splitcomplement"
+  | "triad"
+  | "tetrad"
+  | "complement";

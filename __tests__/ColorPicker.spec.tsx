@@ -29,7 +29,7 @@ describe("ColorPicker", () => {
     const component = shallow(
       <ColorPicker
         color="#000000"
-        colors={["#000", "#fff"]}
+        colorSet={["#000", "#fff"]}
         onChange={value => console.log(value)}
       />
     );
