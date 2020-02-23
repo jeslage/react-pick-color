@@ -2,6 +2,18 @@
 
 ![Screenshot](./assets/colorpicker.png)
 
+Small (only 7kb gziped) color picker component for react.
+
+**Install package**
+
+```sh
+npm install react-pick-color
+
+yarn add react-pick-color
+```
+
+**Add to app**
+
 ```js
 import React, { useState } from "react";
 import ColorPicker from "react-pick-color";
