@@ -13,7 +13,7 @@
     "clean": "rm -rf build",
     "build": "yarn clean && rollup -c",
     "test": "jest",
-    "test:once": "jest",
+    "test:update": "jest -u",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

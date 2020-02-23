@@ -13,6 +13,18 @@ describe("ColorPicker", () => {
     expect(component).toMatchSnapshot();
   });
 
+  it("ColorPicker disable alpha", () => {
+    const component = shallow(
+      <ColorPicker
+        color="#000000"
+        disableAlpha
+        onChange={value => console.log(value)}
+      />
+    );
+
+    expect(component).toMatchSnapshot();
+  });
+
   it("ColorPicker has ColorList", () => {
     const component = shallow(
       <ColorPicker
