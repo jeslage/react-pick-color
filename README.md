@@ -45,7 +45,7 @@ onChange callback with the current color object.
 
 **`showCombination`**
 
-`string` | optional
+`"analogous" | "monochromatic" | "splitcomplement" | "triad" | "tetrad" | "complement"` | optional
 
 **`disableAlpha`**
 
