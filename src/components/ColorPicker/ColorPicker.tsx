@@ -19,6 +19,7 @@ import ColorList from "../ColorList/ColorList";
 import Saturation from "../Saturation/Saturation";
 
 import * as styles from "./ColorPicker.style";
+import Input from "../Input/Input";
 
 interface ColorPickerProps {
   color: Color;
@@ -69,6 +70,18 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     });
   };
 
+  const updateHex = (hex: string) => {
+    const color = tinycolor(hex);
+
+    setCol({
+      hsl: { ...color.toHsl(), h: hsl.h, a: hsv.a },
+      rgb: { ...color.toRgb(), a: hsv.a },
+      hex: hex,
+      hsv: color.toHsv(),
+      alpha: color.getAlpha()
+    });
+  };
+
   const updateAlpha = (alpha: AlphaType) => {
     setCol(prev => ({
       ...prev,
@@ -91,6 +104,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
           {!disableAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
         </div>
       </div>
+      <Input value={hex} name="hex" onChange={val => updateHex(val)} />
       {colorSet && (
         <ColorList colors={colorSet} onClick={val => setCol(initColor(val))} />
       )}
