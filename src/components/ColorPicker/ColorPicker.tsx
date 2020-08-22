@@ -8,7 +8,8 @@ import {
   AlphaType,
   HsvColor,
   ColorCombination,
-  RgbColor
+  RgbColor,
+  Theme
 } from "../../types";
 
 import { initColor, getColorCombination } from "./helper";
@@ -24,21 +25,25 @@ import RgbaInput from "../RgbaInput/RgbaInput";
 import * as styles from "./ColorPicker.style";
 
 interface ColorPickerProps {
+  theme?: Partial<Theme>;
   color: Color;
   colorSet?: Color[];
   onChange?: (color: ColorObject) => void;
   hideAlpha?: boolean;
+  hideInputs?: boolean;
   showCombination?: ColorCombination;
   width?: string;
   className?: string;
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
+  theme,
   color,
   colorSet,
   onChange,
   width,
   hideAlpha,
+  hideInputs,
   className,
   showCombination
 }) => {
@@ -110,22 +115,34 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
   const { rgb, hsl, hsv, hex } = col;
 
+  const variables = {
+    "--rpc-background": theme?.background || "#fff",
+    "--rpc-color": theme?.color || "#000",
+    "--rpc-border": theme?.borderColor || "#ddd",
+    "--rpc-border-radius": theme?.borderRadius || "5px",
+    "--rpc-box-shadow": theme?.boxShadow || "0px 8px 16px rgba(0, 0, 0, 0.1)",
+    "--rpc-width": width || "300px"
+  } as React.CSSProperties;
+
   return (
-    <div style={styles.container(width)} className={className}>
+    <div style={{ ...variables, ...styles.container }} className={className}>
       <Saturation hsl={hsl} hsv={hsv} hex={hex} onChange={updateSaturation} />
 
       <div style={styles.flex}>
         <Value rgb={rgb} />
+
         <div style={styles.ranges}>
           <Hue hsl={hsl} onChange={updateHue} />
           {!hideAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
         </div>
       </div>
 
-      <div style={styles.inputs}>
-        <HexInput value={hex} name="hex" onChange={updateHex} />
-        <RgbaInput value={rgb} onChange={updateRgba} hideAlpha={hideAlpha} />
-      </div>
+      {!hideInputs && (
+        <div style={styles.inputs}>
+          <HexInput value={hex} name="hex" onChange={updateHex} />
+          <RgbaInput value={rgb} onChange={updateRgba} hideAlpha={hideAlpha} />
+        </div>
+      )}
 
       {colorSet && (
         <ColorList

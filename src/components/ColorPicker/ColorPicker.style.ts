@@ -1,13 +1,13 @@
 import CSS from "csstype";
 
-export const container = (width?: string): CSS.Properties => ({
-  background: "#ffffff",
-  boxShadow: " 0px 0px 8px 2px rgba(0, 0, 0, 0.15)",
-  borderRadius: "5px",
-  width: width || "300px",
+export const container: CSS.Properties = {
+  background: "var(--rpc-background)",
+  boxShadow: "var(--rpc-box-shadow)",
+  borderRadius: "var(--rpc-border-radius)",
+  width: "var(--rpc-width)",
   minWidth: "300px",
-  border: "1px solid #f4f4f4"
-});
+  border: "1px solid var(--rpc-border)"
+};
 
 export const flex: CSS.Properties = {
   margin: "0.5rem 1.2rem",

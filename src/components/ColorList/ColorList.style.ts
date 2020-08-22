@@ -4,7 +4,7 @@ import CSS from "csstype";
 
 export const container: CSS.Properties = {
   padding: "1.2rem",
-  borderTop: "1px solid #f4f4f4",
+  borderTop: "1px solid var(--rpc-border)",
   display: "grid",
   gridTemplateColumns: "repeat(9, 1fr)",
   gridGap: "10px"
@@ -13,12 +13,13 @@ export const container: CSS.Properties = {
 export const button: CSS.Properties = {
   height: "20px",
   margin: "0",
+  border: "none",
   boxShadow: "0 0 3px 1px rgba(0, 0, 0, .2)",
   outline: "none",
-  border: "none",
+  appearance: "none",
   cursor: "pointer",
   padding: "0",
-  borderRadius: "5px",
+  borderRadius: "var(--rpc-border-radius)",
   overflow: "hidden",
   position: "relative",
   gridColumnEnd: "span 1"

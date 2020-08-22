@@ -11,12 +11,13 @@ export const gradient: CSS.Properties = {
 };
 
 export const color = (hsl: HslColor): CSS.Properties => ({
-  width: "calc(100% - 10px)",
+  width: "100%",
   height: "200px",
   position: "relative",
   background: `hsl(${hsl.h},100%, 50%)`,
-  borderRadius: "5px",
-  margin: "5px"
+  borderTopLeftRadius: "var(--rpc-border-radius)",
+  borderTopRightRadius: "var(--rpc-border-radius)",
+  borderBottom: "1px solid var(--rpc-border)"
 });
 
 export const pointer = (hsv: HsvColor): CSS.Properties => ({

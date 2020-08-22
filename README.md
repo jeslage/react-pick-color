@@ -8,7 +8,7 @@ Small color picker component for react written in TypeScript. Only 7kb gzipped.
 
 ```sh
 npm install react-pick-color
-
+# or
 yarn add react-pick-color
 ```
 
@@ -21,7 +21,9 @@ import ColorPicker from "react-pick-color";
 const App = () => {
   const [color, setColor] = useState("#fff");
 
-  return <ColorPicker color={color} onChange={color => setColor(color.hex)} />;
+  return (
+    <ColorPicker color={color} onChange={(color) => setColor(color.hex)} />
+  );
 };
 ```
 
@@ -47,8 +49,17 @@ onChange callback with the current color object.
 
 `"analogous" | "monochromatic" | "splitcomplement" | "triad" | "tetrad" | "complement"` | optional
 
-**`disableAlpha`**
+**`hideAlpha`**
 
 `boolean` | optional | default: `false`
 
 Disable the alpha range handler.
+
+## Hooks
+
+```js
+import { useColor } from "react-pick-color";
+
+// A color as a hex string or rgba/hsla object. Will return a color object.
+const { hex, rgb, hsl, hsv, alpha } = useColor("#fff");
+```

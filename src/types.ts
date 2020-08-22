@@ -20,3 +20,11 @@ export type ColorCombination =
   | "triad"
   | "tetrad"
   | "complement";
+
+export type Theme = {
+  background: string;
+  color: string;
+  borderColor: string;
+  borderRadius: string;
+  boxShadow: string;
+};
