@@ -9,17 +9,18 @@ export const Init = () => {
   const [color, setColor] = useState("#ffffff");
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
       <div style={{ margin: "40px" }}>
         <ColorPicker
           color={color}
-          disableAlpha
-          onChange={color => setColor(color.hex)}
+          hideAlpha
+          onChange={(color) => setColor(color.hex)}
         />
       </div>
       <div style={{ margin: "40px" }}>
-        <ColorPicker color={color} onChange={color => setColor(color.hex)} />
+        <ColorPicker color={color} onChange={(color) => setColor(color.hex)} />
       </div>
+
       <div style={{ margin: "40px" }}>
         <ColorPicker
           color={color}
@@ -39,14 +40,14 @@ export const Init = () => {
             "lightgreen",
             "pink"
           ]}
-          onChange={color => setColor(color.hex)}
+          onChange={(color) => setColor(color.hex)}
         />
       </div>
       <div style={{ margin: "40px" }}>
         <ColorPicker
           color={color}
           showCombination="monochromatic"
-          onChange={color => setColor(color.hex)}
+          onChange={(color) => setColor(color.hex)}
         />
       </div>
     </div>

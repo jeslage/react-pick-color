@@ -3,5 +3,7 @@ import Saturation from "./components/Saturation/Saturation";
 import Alpha from "./components/Alpha/Alpha";
 import ColorPicker from "./components/ColorPicker/ColorPicker";
 
-export { ColorPicker, Hue, Saturation, Alpha };
+import useColor from "./hooks/useColor";
+
+export { ColorPicker, Hue, Saturation, Alpha, useColor };
 export default ColorPicker;

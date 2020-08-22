@@ -26,3 +26,10 @@ export const ranges: CSS.Properties = {
 export const colors: CSS.Properties = {
   margin: "0 0.5rem 0 0"
 };
+
+export const inputs: CSS.Properties = {
+  padding: "0 1.2rem 1.2rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between"
+};

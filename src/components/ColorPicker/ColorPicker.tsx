@@ -7,7 +7,8 @@ import {
   ColorObject,
   AlphaType,
   HsvColor,
-  ColorCombination
+  ColorCombination,
+  RgbColor
 } from "../../types";
 
 import { initColor, getColorCombination } from "./helper";
@@ -17,15 +18,16 @@ import Alpha from "../Alpha/Alpha";
 import Value from "../Value/Value";
 import ColorList from "../ColorList/ColorList";
 import Saturation from "../Saturation/Saturation";
+import HexInput from "../HexInput/HexInput";
+import RgbaInput from "../RgbaInput/RgbaInput";
 
 import * as styles from "./ColorPicker.style";
-import Input from "../Input/Input";
 
 interface ColorPickerProps {
   color: Color;
   colorSet?: Color[];
   onChange?: (color: ColorObject) => void;
-  disableAlpha?: boolean;
+  hideAlpha?: boolean;
   showCombination?: ColorCombination;
   width?: string;
   className?: string;
@@ -36,7 +38,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   colorSet,
   onChange,
   width,
-  disableAlpha,
+  hideAlpha,
   className,
   showCombination
 }) => {
@@ -83,7 +85,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   };
 
   const updateAlpha = (alpha: AlphaType) => {
-    setCol(prev => ({
+    setCol((prev) => ({
       ...prev,
       rgb: { ...prev.rgb, a: alpha },
       hsl: { ...prev.hsl, a: alpha },
@@ -92,26 +94,50 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     }));
   };
 
+  const updateRgba = (rgba: RgbColor) => {
+    const { a, ...rgb } = rgba;
+    const color = tinycolor(rgb);
+
+    setCol((prev) => ({
+      ...prev,
+      rgb: { ...rgb, a },
+      hex: color.toHexString(),
+      hsl: { ...color.toHsl(), a },
+      hsv: { ...color.toHsv(), a },
+      alpha: a
+    }));
+  };
+
   const { rgb, hsl, hsv, hex } = col;
 
   return (
     <div style={styles.container(width)} className={className}>
       <Saturation hsl={hsl} hsv={hsv} hex={hex} onChange={updateSaturation} />
+
       <div style={styles.flex}>
         <Value rgb={rgb} />
         <div style={styles.ranges}>
           <Hue hsl={hsl} onChange={updateHue} />
-          {!disableAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
+          {!hideAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
         </div>
       </div>
-      <Input value={hex} name="hex" onChange={val => updateHex(val)} />
+
+      <div style={styles.inputs}>
+        <HexInput value={hex} name="hex" onChange={updateHex} />
+        <RgbaInput value={rgb} onChange={updateRgba} hideAlpha={hideAlpha} />
+      </div>
+
       {colorSet && (
-        <ColorList colors={colorSet} onClick={val => setCol(initColor(val))} />
+        <ColorList
+          colors={colorSet}
+          onClick={(val) => setCol(initColor(val))}
+        />
       )}
+
       {showCombination && (
         <ColorList
           colors={getColorCombination(col, showCombination)}
-          onClick={val => setCol(initColor(val))}
+          onClick={(val) => setCol(initColor(val))}
         />
       )}
     </div>
