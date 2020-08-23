@@ -6,7 +6,7 @@ export const container: CSS.Properties = {
   borderRadius: "var(--rpc-border-radius)",
   width: "var(--rpc-width)",
   minWidth: "300px",
-  border: "1px solid var(--rpc-border)"
+  border: "1px solid var(--rpc-border-color)"
 };
 
 export const flex: CSS.Properties = {

@@ -1,6 +1,8 @@
+## 🚧 Work in progress 🚧
+
 # React Pick Color
 
-Small color picker component for react written in TypeScript. Only 7kb gzipped.
+Small color picker component for react written in TypeScript.
 
 ![Screenshot](./assets/colorpicker.png)
 

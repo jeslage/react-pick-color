@@ -17,7 +17,7 @@ export const color = (hsl: HslColor): CSS.Properties => ({
   background: `hsl(${hsl.h},100%, 50%)`,
   borderTopLeftRadius: "var(--rpc-border-radius)",
   borderTopRightRadius: "var(--rpc-border-radius)",
-  borderBottom: "1px solid var(--rpc-border)"
+  borderBottom: "1px solid var(--rpc-border-color)"
 });
 
 export const pointer = (hsv: HsvColor): CSS.Properties => ({

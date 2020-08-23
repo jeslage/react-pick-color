@@ -22,8 +22,9 @@ const RgbaInput: React.FC<RgbaInputProps> = ({
   };
 
   return (
-    <div style={styles.input}>
+    <div style={styles.wrapper}>
       <input
+        style={styles.input}
         type="number"
         min={0}
         max={255}
@@ -32,6 +33,7 @@ const RgbaInput: React.FC<RgbaInputProps> = ({
         onChange={(e) => handleChange("r", e.target.value)}
       />
       <input
+        style={styles.input}
         type="number"
         min={0}
         max={255}
@@ -40,6 +42,7 @@ const RgbaInput: React.FC<RgbaInputProps> = ({
         onChange={(e) => handleChange("g", e.target.value)}
       />
       <input
+        style={styles.input}
         type="number"
         min={0}
         max={255}
@@ -49,6 +52,7 @@ const RgbaInput: React.FC<RgbaInputProps> = ({
       />
       {!hideAlpha && (
         <input
+          style={styles.input}
           type="number"
           min={0}
           max={100}

@@ -85,10 +85,12 @@ export const withCustomTheme = () => {
         background: "#222",
         color: "#f4f4f4",
         borderRadius: "0px",
-        borderColor: "#111"
+        borderColor: "#555"
       }}
       color={color}
       onChange={(color) => setColor(color.hex)}
+      showCombination={["analogous", "complement", "monochromatic"]}
+      colorSet={["crimson", "darkgreen", "navy"]}
     />
   );
 };

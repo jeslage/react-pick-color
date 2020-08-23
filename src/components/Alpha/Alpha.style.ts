@@ -9,7 +9,8 @@ export const container: CSS.Properties = {
   boxShadow: "0 0 2px rgba(0, 0, 0, .2)",
   position: "relative",
   zIndex: 1,
-  borderRadius: "16px"
+  borderRadius: "16px",
+  background: "#fff"
 };
 
 export const alpha = (rgb: RgbColor): CSS.Properties => ({

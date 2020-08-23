@@ -8,8 +8,9 @@ export const container: CSS.Properties = {
   height: "30px",
   borderRadius: "var(--rpc-border-radius)",
   overflow: "hidden",
-  // border: "2px solid var(--rpc-border)",
-  boxShadow: "0 0 2px 0px rgba(0, 0, 0, .2)"
+  // border: "2px solid var(--rpc-border-color)",
+  boxShadow: "0 0 2px 0px rgba(0, 0, 0, .2)",
+  background: "#fff"
 };
 
 export const value = (color: RgbColor): CSS.Properties => ({

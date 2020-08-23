@@ -18,7 +18,7 @@ const HexInput: React.FC<HexInputProps> = ({ value, name, onChange }) => {
 
   return (
     <div style={styles.wrapper}>
-      <span>#</span>
+      <span style={styles.prefix}>#</span>
       <input
         type="text"
         name={name}

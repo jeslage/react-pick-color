@@ -31,7 +31,7 @@ interface ColorPickerProps {
   onChange?: (color: ColorObject) => void;
   hideAlpha?: boolean;
   hideInputs?: boolean;
-  showCombination?: ColorCombination;
+  showCombination?: ColorCombination | ColorCombination[];
   width?: string;
   className?: string;
 }
@@ -118,7 +118,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   const variables = {
     "--rpc-background": theme?.background || "#fff",
     "--rpc-color": theme?.color || "#000",
-    "--rpc-border": theme?.borderColor || "#ddd",
+    "--rpc-border-color": theme?.borderColor || "#ddd",
     "--rpc-border-radius": theme?.borderRadius || "5px",
     "--rpc-box-shadow": theme?.boxShadow || "0px 8px 16px rgba(0, 0, 0, 0.1)",
     "--rpc-width": width || "300px"

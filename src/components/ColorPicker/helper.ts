@@ -28,24 +28,38 @@ export const initColor = (initialColor: Color): ColorObject => {
 
 export const getColorCombination = (
   color: ColorObject,
-  combination: ColorCombination
-): string[] => {
+  comb: ColorCombination | ColorCombination[]
+): any[] => {
   const { hex } = color;
+
   const col = tinycolor(hex);
 
-  if (combination === "analogous") {
-    return col.analogous().map(t => t.toHexString());
-  } else if (combination === "monochromatic") {
-    return col.monochromatic().map(t => t.toHexString());
-  } else if (combination === "splitcomplement") {
-    return col.splitcomplement().map(t => t.toHexString());
-  } else if (combination === "tetrad") {
-    return col.tetrad().map(t => t.toHexString());
-  } else if (combination === "triad") {
-    return col.triad().map(t => t.toHexString());
-  } else if (combination === "complement") {
-    return [col.complement().toHexString()];
-  }
+  const all = typeof comb === "string" ? [comb] : comb;
+  const combs: any[] = [];
 
-  return [hex];
+  all.forEach((item) => {
+    if (item === "analogous") {
+      return col.analogous().forEach((t) => combs.push(t.toHexString()));
+    }
+
+    if (item === "monochromatic") {
+      return col.monochromatic().forEach((t) => combs.push(t.toHexString()));
+    }
+
+    if (item === "splitcomplement") {
+      return col.splitcomplement().forEach((t) => combs.push(t.toHexString()));
+    }
+
+    if (item === "tetrad") {
+      return col.tetrad().forEach((t) => combs.push(t.toHexString()));
+    }
+
+    if (item === "triad") {
+      return col.triad().forEach((t) => combs.push(t.toHexString()));
+    }
+
+    return combs.push(col.complement().toHexString());
+  });
+
+  return combs;
 };
