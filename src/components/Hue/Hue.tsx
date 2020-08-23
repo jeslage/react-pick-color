@@ -37,12 +37,12 @@ const Hue: React.FC<HueProps> = ({ hsl, onChange }) => {
     <div
       style={styles.container}
       ref={container}
-      onMouseDown={e => handleMouseDown(e)}
-      onTouchMove={e => handleChange(e)}
-      onTouchStart={e => handleChange(e)}
+      onMouseDown={(e) => handleMouseDown(e)}
+      onTouchMove={(e) => handleChange(e)}
+      onTouchStart={(e) => handleChange(e)}
     >
-      <div style={styles.pointer(hsl)}>
-        <div style={styles.slider(hsl)} />
+      <div style={styles.pointer}>
+        <div style={styles.slider} />
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-import { RgbColor } from "../../types";
-
 import CSS from "csstype";
 
 export const container: CSS.Properties = {
@@ -13,15 +11,15 @@ export const container: CSS.Properties = {
   background: "#fff"
 };
 
-export const value = (color: RgbColor): CSS.Properties => ({
+export const value: CSS.Properties = {
   position: "absolute",
-  background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
+  background: "var(--rpc-rgba)",
   top: "0px",
   right: "0px",
   bottom: "0px",
   left: "0px",
   zIndex: 2
-});
+};
 
 export const checkboard: CSS.Properties = {
   position: "absolute",

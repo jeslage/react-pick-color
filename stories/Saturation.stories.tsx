@@ -13,10 +13,8 @@ export const Init = () => {
   });
   return (
     <Saturation
-      hex={color.hex}
       hsl={color.hsl}
-      hsv={color.hsv}
-      onChange={color => setColor(prev => ({ ...prev, hsv: color }))}
+      onChange={(color) => setColor((prev) => ({ ...prev, hsv: color }))}
     />
   );
 };

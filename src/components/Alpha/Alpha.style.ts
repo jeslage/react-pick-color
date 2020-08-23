@@ -1,7 +1,5 @@
 import CSS from "csstype";
 
-import { RgbColor } from "../../types";
-
 export const container: CSS.Properties = {
   margin: "15px 0",
   width: "100%",
@@ -13,22 +11,22 @@ export const container: CSS.Properties = {
   background: "#fff"
 };
 
-export const alpha = (rgb: RgbColor): CSS.Properties => ({
+export const alpha: CSS.Properties = {
   position: "absolute",
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
-  background: `linear-gradient(to right, rgba(${rgb.r},${rgb.g},${rgb.b}, 0) 0%, rgba(${rgb.r},${rgb.g},${rgb.b}, 1) 100%)`,
+  background: `linear-gradient(to right, rgba(var(--rpc-red), var(--rpc-green), var(--rpc-blue), 0) 0%, rgba(var(--rpc-red), var(--rpc-green), var(--rpc-blue), 1) 100%)`,
   borderRadius: "16px"
-});
+};
 
-export const pointer = (rgb: RgbColor): CSS.Properties => ({
+export const pointer: CSS.Properties = {
   position: "absolute",
-  left: `${rgb.a * 100}%`
-});
+  left: "var(--rpc-alpha-pointer)"
+};
 
-export const slider = (rgb: RgbColor): CSS.Properties => ({
+export const slider: CSS.Properties = {
   width: "16px",
   borderRadius: "16px",
   height: "16px",
@@ -36,8 +34,8 @@ export const slider = (rgb: RgbColor): CSS.Properties => ({
   border: "2px solid #ffffff",
   transform: "translate(-8px, -4px)",
   cursor: "pointer",
-  background: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${rgb.a})`
-});
+  background: "var(--rpc-rgba)"
+};
 
 export const checkboard: CSS.Properties = {
   position: "absolute",

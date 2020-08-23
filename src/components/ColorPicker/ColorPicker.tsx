@@ -113,7 +113,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     }));
   };
 
-  const { rgb, hsl, hsv, hex } = col;
+  const { rgb, hsl, hsv, hex, alpha } = col;
 
   const variables = {
     "--rpc-background": theme?.background || "#fff",
@@ -124,39 +124,59 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     "--rpc-width": width || "300px"
   } as React.CSSProperties;
 
+  const colorVariables = {
+    "--rpc-hue": hsl.h,
+    "--rpc-red": rgb.r,
+    "--rpc-green": rgb.g,
+    "--rpc-blue": rgb.b,
+    "--rpc-hex": hex,
+    "--rpc-alpha": alpha,
+    "--rpc-rgba": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`,
+    "--rpc-hue-pointer": `${(hsl.h * 100) / 360}%`,
+    "--rpc-alpha-pointer": `${alpha * 100}%`,
+    "--rpc-saturation-pointer-top": `calc(${-(hsv.v * 100) + 100}% - 10px)`,
+    "--rpc-saturation-pointer-left": `calc(${hsv.s * 100}% - 10px)`
+  } as React.CSSProperties;
+
   return (
     <div style={{ ...variables, ...styles.container }} className={className}>
-      <Saturation hsl={hsl} hsv={hsv} hex={hex} onChange={updateSaturation} />
+      <div style={colorVariables}>
+        <Saturation hsl={hsl} onChange={updateSaturation} />
 
-      <div style={styles.flex}>
-        <Value rgb={rgb} />
+        <div style={styles.flex}>
+          <Value />
 
-        <div style={styles.ranges}>
-          <Hue hsl={hsl} onChange={updateHue} />
-          {!hideAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
+          <div style={styles.ranges}>
+            <Hue hsl={hsl} onChange={updateHue} />
+            {!hideAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
+          </div>
         </div>
+
+        {!hideInputs && (
+          <div style={styles.inputs}>
+            <HexInput value={hex} name="hex" onChange={updateHex} />
+            <RgbaInput
+              value={rgb}
+              onChange={updateRgba}
+              hideAlpha={hideAlpha}
+            />
+          </div>
+        )}
+
+        {colorSet && (
+          <ColorList
+            colors={colorSet}
+            onClick={(val) => setCol(initColor(val))}
+          />
+        )}
+
+        {showCombination && (
+          <ColorList
+            colors={getColorCombination(col, showCombination)}
+            onClick={(val) => setCol(initColor(val))}
+          />
+        )}
       </div>
-
-      {!hideInputs && (
-        <div style={styles.inputs}>
-          <HexInput value={hex} name="hex" onChange={updateHex} />
-          <RgbaInput value={rgb} onChange={updateRgba} hideAlpha={hideAlpha} />
-        </div>
-      )}
-
-      {colorSet && (
-        <ColorList
-          colors={colorSet}
-          onClick={(val) => setCol(initColor(val))}
-        />
-      )}
-
-      {showCombination && (
-        <ColorList
-          colors={getColorCombination(col, showCombination)}
-          onClick={(val) => setCol(initColor(val))}
-        />
-      )}
     </div>
   );
 };

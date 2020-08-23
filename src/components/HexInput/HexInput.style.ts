@@ -1,17 +1,15 @@
 import CSS from "csstype";
 
 export const wrapper: CSS.Properties = {
-  flexGrow: 2,
   display: "flex",
   alignItems: "center",
   color: "var(--rpc-color)",
   border: "1px solid var(--rpc-border-color)",
-  marginRight: "5px",
   borderRadius: "var(--rpc-border-radius)"
 };
 
 export const input: CSS.Properties = {
-  width: "calc(100% - 0.5rem)",
+  width: "45px",
   background: "var(--rpc-background)",
   color: "var(--rpc-color)",
   border: "none",

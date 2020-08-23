@@ -1,7 +1,7 @@
 import CSS from "csstype";
 
 export const wrapper: CSS.Properties = {
-  flexShrink: 0
+  display: "flex"
 };
 
 export const input: CSS.Properties = {
@@ -10,5 +10,7 @@ export const input: CSS.Properties = {
   border: "1px solid var(--rpc-border-color)",
   borderRadius: "var(--rpc-border-radius)",
   padding: "5px",
-  fontSize: "12px"
+  fontSize: "12px",
+  marginLeft: "5px",
+  maxWidth: "32px"
 };

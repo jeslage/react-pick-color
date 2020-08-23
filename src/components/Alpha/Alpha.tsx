@@ -37,14 +37,14 @@ const Alpha: React.FC<AlphaProps> = ({ rgb, onChange }) => {
     <div
       style={styles.container}
       ref={container}
-      onMouseDown={e => handleMouseDown(e)}
-      onTouchMove={e => handleChange(e)}
-      onTouchStart={e => handleChange(e)}
+      onMouseDown={(e) => handleMouseDown(e)}
+      onTouchMove={(e) => handleChange(e)}
+      onTouchStart={(e) => handleChange(e)}
     >
-      <div style={styles.alpha(rgb)} />
+      <div style={styles.alpha} />
       <div style={styles.checkboard} />
-      <div style={styles.pointer(rgb)}>
-        <div style={styles.slider(rgb)} />
+      <div style={styles.pointer}>
+        <div style={styles.slider} />
       </div>
     </div>
   );
