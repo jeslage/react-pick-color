@@ -53,7 +53,6 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-typescript2": "^0.25.2",
     "ts-jest": "^24.2.0",
-    "ts-loader": "^6.2.1",
     "typescript": "^3.7.2"
   },
   "dependencies": {
