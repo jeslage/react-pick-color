@@ -1,16 +1,16 @@
+import React from "react";
+
 import { RgbColor } from "../../types";
 
-import CSS from "csstype";
-
-export const container: CSS.Properties = {
-  padding: "1.2rem",
+export const container: React.CSSProperties = {
+  padding: "0.8rem",
   borderTop: "1px solid var(--rpc-border-color)",
   display: "grid",
   gridTemplateColumns: "repeat(9, 1fr)",
   gridGap: "10px"
 };
 
-export const button: CSS.Properties = {
+export const button: React.CSSProperties = {
   height: "20px",
   margin: "0",
   outline: "none",
@@ -24,7 +24,7 @@ export const button: CSS.Properties = {
   gridColumnEnd: "span 1"
 };
 
-export const value = (color: RgbColor): CSS.Properties => ({
+export const value = (color: RgbColor): React.CSSProperties => ({
   position: "absolute",
   background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
   top: "0px",
@@ -34,7 +34,7 @@ export const value = (color: RgbColor): CSS.Properties => ({
   zIndex: 2
 });
 
-export const checkboard: CSS.Properties = {
+export const checkboard: React.CSSProperties = {
   position: "absolute",
   top: "0px",
   right: "0px",

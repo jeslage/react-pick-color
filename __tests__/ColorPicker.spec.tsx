@@ -7,18 +7,18 @@ import ColorPicker from "../src/components/ColorPicker/ColorPicker";
 describe("ColorPicker", () => {
   it("ColorPicker should render correctly", () => {
     const component = shallow(
-      <ColorPicker color="#000000" onChange={value => console.log(value)} />
+      <ColorPicker color="#000000" onChange={(value) => console.log(value)} />
     );
 
     expect(component).toMatchSnapshot();
   });
 
-  it("ColorPicker disable alpha", () => {
+  it("ColorPicker hide alpha", () => {
     const component = shallow(
       <ColorPicker
         color="#000000"
-        disableAlpha
-        onChange={value => console.log(value)}
+        hideAlpha
+        onChange={(value) => console.log(value)}
       />
     );
 
@@ -30,7 +30,7 @@ describe("ColorPicker", () => {
       <ColorPicker
         color="#000000"
         colorSet={["#000", "#fff"]}
-        onChange={value => console.log(value)}
+        onChange={(value) => console.log(value)}
       />
     );
 

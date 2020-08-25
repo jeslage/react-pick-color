@@ -1,50 +1,39 @@
 {
   "name": "react-pick-color",
+  "description": "A tiny color picker for react",
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
-  "jsnext:main": "build/index.es.js",
   "types": "build/index.d.ts",
   "files": [
     "build"
   ],
-  "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "clean": "rm -rf build",
     "build": "yarn clean && rollup -c",
     "test": "jest",
-    "test:update": "jest -u",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test:update": "jest -u"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HarveyD/react-component-library.git"
+    "url": "https://github.com/jeslage/react-pick-color"
   },
   "keywords": [
     "React",
-    "Component",
-    "Library",
-    "Rollup",
-    "Typescript",
-    "Sass",
-    "Storybook"
+    "Colorpicker",
+    "Color"
   ],
-  "author": "Harvey Delaney",
-  "license": "ISC",
+  "author": "Johannes Eslage",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HarveyD/react-component-library/issues"
+    "url": "https://github.com/jeslage/react-pick-color/issues"
   },
-  "homepage": "https://github.com/HarveyD/react-component-library#readme",
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
-    "@storybook/addon-actions": "^5.2.6",
-    "@storybook/addon-links": "^5.2.6",
-    "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
@@ -52,7 +41,6 @@
     "@types/react": "^16.9.12",
     "@types/tinycolor2": "^1.4.2",
     "babel-loader": "^8.0.6",
-    "csstype": "^2.6.9",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.3",

@@ -27,4 +27,5 @@ export type Theme = {
   borderColor: string;
   borderRadius: string;
   boxShadow: string;
+  width: string;
 };

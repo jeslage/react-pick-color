@@ -2,7 +2,7 @@ import tinycolor from "tinycolor2";
 
 import { Color, ColorObject, ColorCombination } from "../../types";
 
-export const initColor = (initialColor: Color): ColorObject => {
+export const initColor = (initialColor?: Color): ColorObject => {
   const color = tinycolor(initialColor);
 
   const isValidColor = color.isValid();

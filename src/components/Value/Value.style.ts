@@ -1,6 +1,6 @@
-import CSS from "csstype";
+import React from "react";
 
-export const container: CSS.Properties = {
+export const container: React.CSSProperties = {
   position: "relative",
   width: "30px",
   height: "30px",
@@ -11,7 +11,7 @@ export const container: CSS.Properties = {
   background: "#fff"
 };
 
-export const value: CSS.Properties = {
+export const value: React.CSSProperties = {
   position: "absolute",
   background: "var(--rpc-rgba)",
   top: "0px",
@@ -21,7 +21,7 @@ export const value: CSS.Properties = {
   zIndex: 2
 };
 
-export const checkboard: CSS.Properties = {
+export const checkboard: React.CSSProperties = {
   position: "absolute",
   top: "0px",
   right: "0px",

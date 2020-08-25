@@ -17,17 +17,20 @@ const HexInput: React.FC<HexInputProps> = ({ value, name, onChange }) => {
   };
 
   return (
-    <div style={styles.wrapper}>
-      <span style={styles.prefix}>#</span>
-      <input
-        type="text"
-        name={name}
-        value={value.replace("#", "")}
-        onChange={handleChange}
-        onBlur={handleChange}
-        style={styles.input}
-      />
-    </div>
+    <label style={styles.label}>
+      <div style={styles.wrapper}>
+        <span style={styles.prefix}>#</span>
+        <input
+          type="text"
+          name={name}
+          value={value.replace("#", "")}
+          onChange={handleChange}
+          onBlur={handleChange}
+          style={styles.input}
+        />
+      </div>
+      <span>Hex</span>
+    </label>
   );
 };
 

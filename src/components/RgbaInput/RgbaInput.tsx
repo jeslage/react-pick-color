@@ -23,43 +23,57 @@ const RgbaInput: React.FC<RgbaInputProps> = ({
 
   return (
     <div style={styles.wrapper}>
-      <input
-        style={styles.input}
-        type="number"
-        min={0}
-        max={255}
-        name="red"
-        value={value.r}
-        onChange={(e) => handleChange("r", e.target.value)}
-      />
-      <input
-        style={styles.input}
-        type="number"
-        min={0}
-        max={255}
-        name="green"
-        value={value.g}
-        onChange={(e) => handleChange("g", e.target.value)}
-      />
-      <input
-        style={styles.input}
-        type="number"
-        min={0}
-        max={255}
-        name="blue"
-        value={value.b}
-        onChange={(e) => handleChange("b", e.target.value)}
-      />
-      {!hideAlpha && (
+      <label style={styles.label}>
         <input
           style={styles.input}
           type="number"
           min={0}
-          max={100}
-          name="alpha"
-          value={value.a * 100}
-          onChange={(e) => handleChange("a", e.target.value)}
+          max={255}
+          name="red"
+          value={value.r}
+          onChange={(e) => handleChange("r", e.target.value)}
         />
+        <span>R</span>
+      </label>
+      <label style={styles.label}>
+        <input
+          style={styles.input}
+          type="number"
+          min={0}
+          max={255}
+          name="green"
+          value={value.g}
+          onChange={(e) => handleChange("g", e.target.value)}
+        />
+        <span>G</span>
+      </label>
+
+      <label style={styles.label}>
+        <input
+          style={styles.input}
+          type="number"
+          min={0}
+          max={255}
+          name="blue"
+          value={value.b}
+          onChange={(e) => handleChange("b", e.target.value)}
+        />
+        <span>B</span>
+      </label>
+
+      {!hideAlpha && (
+        <label style={styles.label}>
+          <input
+            style={styles.input}
+            type="number"
+            min={0}
+            max={100}
+            name="alpha"
+            value={value.a * 100}
+            onChange={(e) => handleChange("a", e.target.value)}
+          />
+          <span>A</span>
+        </label>
       )}
     </div>
   );

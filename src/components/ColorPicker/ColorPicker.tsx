@@ -24,15 +24,14 @@ import RgbaInput from "../RgbaInput/RgbaInput";
 
 import * as styles from "./ColorPicker.style";
 
-interface ColorPickerProps {
+export interface ColorPickerProps {
   theme?: Partial<Theme>;
-  color: Color;
+  color?: Color;
   colorSet?: Color[];
   onChange?: (color: ColorObject) => void;
   hideAlpha?: boolean;
   hideInputs?: boolean;
   showCombination?: ColorCombination | ColorCombination[];
-  width?: string;
   className?: string;
 }
 
@@ -41,7 +40,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   color,
   colorSet,
   onChange,
-  width,
   hideAlpha,
   hideInputs,
   className,
@@ -121,7 +119,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     "--rpc-border-color": theme?.borderColor || "#ddd",
     "--rpc-border-radius": theme?.borderRadius || "5px",
     "--rpc-box-shadow": theme?.boxShadow || "0px 8px 16px rgba(0, 0, 0, 0.1)",
-    "--rpc-width": width || "300px"
+    "--rpc-width": theme?.width || "310px"
   } as React.CSSProperties;
 
   const colorVariables = {

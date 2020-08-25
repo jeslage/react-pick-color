@@ -1,5 +1,4 @@
 import React from "react";
-import CSS from "csstype";
 import tinycolor from "tinycolor2";
 
 import * as styles from "./ColorList.style";
@@ -8,7 +7,7 @@ import { RgbColor, Color } from "../../types";
 
 interface ColorListProps {
   colors: Color[];
-  additionalStyles?: CSS.Properties;
+  additionalStyles?: React.CSSProperties;
   onClick: (color: RgbColor) => void;
 }
 

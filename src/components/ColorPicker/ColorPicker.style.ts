@@ -1,6 +1,6 @@
-import CSS from "csstype";
+import React from "react";
 
-export const container: CSS.Properties = {
+export const container: React.CSSProperties = {
   background: "var(--rpc-background)",
   boxShadow: "var(--rpc-box-shadow)",
   borderRadius: "var(--rpc-border-radius)",
@@ -9,26 +9,26 @@ export const container: CSS.Properties = {
   border: "1px solid var(--rpc-border-color)"
 };
 
-export const flex: CSS.Properties = {
-  margin: "0.5rem 1.2rem",
-  width: "calc(100% - 2.4rem)",
+export const flex: React.CSSProperties = {
+  margin: "0.4rem 0.8rem",
+  width: "calc(100% - 1.6rem)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   flexWrap: "wrap"
 };
 
-export const ranges: CSS.Properties = {
+export const ranges: React.CSSProperties = {
   flexGrow: 2,
-  marginLeft: "20px"
+  marginLeft: "0.8rem"
 };
 
-export const colors: CSS.Properties = {
+export const colors: React.CSSProperties = {
   margin: "0 0.5rem 0 0"
 };
 
-export const inputs: CSS.Properties = {
-  padding: "0 1.2rem 1.2rem",
+export const inputs: React.CSSProperties = {
+  margin: "0 0.8rem 0.8rem",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between"
