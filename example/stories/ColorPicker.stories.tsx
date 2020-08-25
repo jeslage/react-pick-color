@@ -100,6 +100,13 @@ ShowCombination.args = {
   showCombination: "monochromatic"
 };
 
+export const WithDefaultTheme = Template.bind({});
+// @ts-ignore
+WithDefaultTheme.args = {
+  showCombination: ["analogous", "complement", "monochromatic"],
+  colorSet: ["crimson", "darkgreen", "navy"]
+};
+
 export const WithRoundTheme = Template.bind({});
 // @ts-ignore
 WithRoundTheme.args = {

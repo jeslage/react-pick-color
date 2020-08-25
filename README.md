@@ -4,7 +4,7 @@
 
 Small color picker component for react written in TypeScript.
 
-![Screenshot](./assets/colorpicker.png)
+![Screenshot](./assets/react-pick-color.jpg)
 
 **Install package**
 
