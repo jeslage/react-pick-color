@@ -9,9 +9,6 @@ export const container: React.CSSProperties = {
   border: "1px solid var(--rpc-border-color)"
 };
 
-export const saturation: React.CSSProperties = {
-  margin: "0.4rem"
-};
 export const flex: React.CSSProperties = {
   margin: "0.4rem 0.4rem",
   width: "calc(100% - 0.8rem)",

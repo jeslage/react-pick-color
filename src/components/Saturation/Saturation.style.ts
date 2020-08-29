@@ -10,8 +10,9 @@ export const gradient: React.CSSProperties = {
 };
 
 export const color: React.CSSProperties = {
-  width: "100%",
+  width: "calc(100% - 0.8rem)",
   height: "200px",
+  margin: "0.4rem",
   position: "relative",
   background: `hsl(var(--rpc-hue),100%, 50%)`,
   borderRadius: "var(--rpc-border-radius)",

@@ -8,7 +8,8 @@ export const container: React.CSSProperties = {
   position: "relative",
   zIndex: 1,
   borderRadius: "calc(var(--rpc-border-radius) / 2)",
-  background: "#fff"
+  background: "#fff",
+  overflow: "hidden"
 };
 
 export const alpha: React.CSSProperties = {
@@ -32,7 +33,7 @@ export const slider: React.CSSProperties = {
   height: "6px",
   boxShadow: "0 0 1px rgba(0, 0, 0, .9)",
   border: "2px solid var(--rpc-background)",
-  transform: "translate(-6px, 1px)",
+  transform: "translate(-5px, 1px)",
   cursor: "pointer",
   background: "var(--rpc-rgba)"
 };

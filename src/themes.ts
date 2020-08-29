@@ -3,7 +3,6 @@ import { Theme } from "./types";
 type Themes = {
   light: Theme;
   dark: Theme;
-  round: Theme;
 };
 
 const theme: Themes = {
@@ -22,15 +21,15 @@ const theme: Themes = {
     borderColor: "#555",
     boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
     width: "280px"
-  },
-  round: {
-    background: "#f4f4f4",
-    color: "#555",
-    borderColor: "#ddd",
-    borderRadius: "20px",
-    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
-    width: "280px"
   }
+  // round: {
+  //   background: "#f4f4f4",
+  //   color: "#555",
+  //   borderColor: "#ddd",
+  //   borderRadius: "20px",
+  //   boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
+  //   width: "280px"
+  // }
 };
 
 export default theme;

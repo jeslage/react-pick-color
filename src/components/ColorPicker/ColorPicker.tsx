@@ -141,9 +141,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   return (
     <div style={{ ...variables, ...styles.container }} className={className}>
       <div style={colorVariables}>
-        <div style={styles.saturation}>
-          <Saturation hsl={hsl} onChange={updateSaturation} />
-        </div>
+        <Saturation hsl={hsl} onChange={updateSaturation} />
 
         <div style={styles.flex}>
           <Value />

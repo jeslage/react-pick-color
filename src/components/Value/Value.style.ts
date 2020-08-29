@@ -6,7 +6,7 @@ export const container: React.CSSProperties = {
   height: "30px",
   borderRadius: "var(--rpc-border-radius)",
   overflow: "hidden",
-  // border: "2px solid var(--rpc-border-color)",
+  // border: "1px solid var(--rpc-border-color)",
   boxShadow: "0 0 2px 0px rgba(0, 0, 0, .2)",
   background: "#fff"
 };
