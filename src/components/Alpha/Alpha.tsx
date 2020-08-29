@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef } from 'react';
 
-import { calculateAlpha } from "./helper";
-import { RgbColor, AlphaType } from "../../types";
+import { calculateAlpha } from './helper';
+import { RgbColor, AlphaType } from '../../types';
 
-import * as styles from "./Alpha.style";
+import * as styles from './Alpha.style';
 
 interface AlphaProps {
   rgb: RgbColor;
@@ -18,19 +18,19 @@ const Alpha: React.FC<AlphaProps> = ({ rgb, onChange }) => {
   ) => {
     if (container.current) {
       const change = calculateAlpha(e, rgb.a, container.current);
-      change && typeof onChange === "function" && onChange(change);
+      change >= 0 && typeof onChange === 'function' && onChange(change);
     }
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     handleChange(e);
-    window.addEventListener("mousemove", handleChange);
-    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener('mousemove', handleChange);
+    window.addEventListener('mouseup', handleMouseUp);
   };
 
   const handleMouseUp = () => {
-    window.removeEventListener("mousemove", handleChange);
-    window.removeEventListener("mouseup", handleMouseUp);
+    window.removeEventListener('mousemove', handleChange);
+    window.removeEventListener('mouseup', handleMouseUp);
   };
 
   return (

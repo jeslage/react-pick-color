@@ -1,11 +1,11 @@
-import "jest";
-import * as React from "react";
-import { shallow } from "enzyme";
+import 'jest';
+import * as React from 'react';
+import { shallow } from 'enzyme';
 
-import ColorPicker from "../src/components/ColorPicker/ColorPicker";
+import ColorPicker from '../src/components/ColorPicker/ColorPicker';
 
-describe("ColorPicker", () => {
-  it("ColorPicker should render correctly", () => {
+describe('ColorPicker', () => {
+  it('ColorPicker should render correctly', () => {
     const component = shallow(
       <ColorPicker color="#000000" onChange={(value) => console.log(value)} />
     );
@@ -13,7 +13,7 @@ describe("ColorPicker", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("ColorPicker hide alpha", () => {
+  it('ColorPicker hide alpha', () => {
     const component = shallow(
       <ColorPicker
         color="#000000"
@@ -25,11 +25,11 @@ describe("ColorPicker", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("ColorPicker has ColorList", () => {
+  it('ColorPicker has ColorList', () => {
     const component = shallow(
       <ColorPicker
         color="#000000"
-        colorSet={["#000", "#fff"]}
+        presets={['#000', '#fff']}
         onChange={(value) => console.log(value)}
       />
     );

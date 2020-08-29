@@ -1,4 +1,4 @@
-import { AlphaType } from "../../types";
+import { AlphaType } from '../../types';
 
 export const calculateAlpha = (
   e: any,
@@ -6,7 +6,7 @@ export const calculateAlpha = (
   container: HTMLElement
 ) => {
   const containerWidth = container.clientWidth;
-  const x = typeof e.pageX === "number" ? e.pageX : e.touches[0].pageX;
+  const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
   const left =
     x - (container.getBoundingClientRect().left + window.pageXOffset);
 
@@ -23,5 +23,5 @@ export const calculateAlpha = (
     return a;
   }
 
-  return null;
+  return initialA;
 };

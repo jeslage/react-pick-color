@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import tinycolor from "tinycolor2";
+import React, { useState, useEffect } from 'react';
+import tinycolor from 'tinycolor2';
 
 import {
   Color,
@@ -9,46 +9,48 @@ import {
   HsvColor,
   ColorCombination,
   RgbColor,
-  Theme
-} from "../../types";
+  Theme,
+} from '../../types';
 
-import { initColor, getColorCombination } from "./helper";
+import { initColor, getColorCombination } from './helper';
 
-import Hue from "../Hue/Hue";
-import Alpha from "../Alpha/Alpha";
-import Value from "../Value/Value";
-import ColorList from "../ColorList/ColorList";
-import Saturation from "../Saturation/Saturation";
-import HexInput from "../HexInput/HexInput";
-import RgbaInput from "../RgbaInput/RgbaInput";
+import Hue from '../Hue/Hue';
+import Alpha from '../Alpha/Alpha';
+import Value from '../Value/Value';
+import ColorList from '../ColorList/ColorList';
+import Saturation from '../Saturation/Saturation';
+import HexInput from '../HexInput/HexInput';
+import RgbaInput from '../RgbaInput/RgbaInput';
 
-import * as styles from "./ColorPicker.style";
+import * as styles from './ColorPicker.style';
+import PresetList from '../PresetList/PresetList';
+import { themes } from '../..';
 
 export interface ColorPickerProps {
   theme?: Partial<Theme>;
   color?: Color;
-  colorSet?: Color[];
+  presets?: Color[];
   onChange?: (color: ColorObject) => void;
   hideAlpha?: boolean;
   hideInputs?: boolean;
-  showCombination?: ColorCombination | ColorCombination[];
+  combinations?: ColorCombination | ColorCombination[];
   className?: string;
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
   theme,
   color,
-  colorSet,
+  presets,
   onChange,
   hideAlpha,
   hideInputs,
   className,
-  showCombination
+  combinations,
 }) => {
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
   useEffect(() => {
-    onChange && typeof onChange === "function" && onChange(col);
+    onChange && typeof onChange === 'function' && onChange(col);
   }, [col]);
 
   const updateHue = (hsl: HslColor) => {
@@ -59,7 +61,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
       rgb: { ...color.toRgb(), a: hsl.a },
       hex: color.toHexString(),
       hsv: { ...col.hsv, h: color.toHsv().h },
-      alpha: hsl.a
+      alpha: hsl.a,
     });
   };
 
@@ -71,7 +73,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
       rgb: { ...color.toRgb(), a: hsv.a },
       hex: color.toHexString(),
       hsv,
-      alpha: hsv.a
+      alpha: hsv.a,
     });
   };
 
@@ -83,7 +85,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
       rgb: { ...color.toRgb(), a: hsv.a },
       hex: hex,
       hsv: color.toHsv(),
-      alpha: color.getAlpha()
+      alpha: color.getAlpha(),
     });
   };
 
@@ -93,7 +95,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
       rgb: { ...prev.rgb, a: alpha },
       hsl: { ...prev.hsl, a: alpha },
       hsv: { ...prev.hsv, a: alpha },
-      alpha
+      alpha,
     }));
   };
 
@@ -107,33 +109,33 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
       hex: color.toHexString(),
       hsl: { ...color.toHsl(), a },
       hsv: { ...color.toHsv(), a },
-      alpha: a
+      alpha: a,
     }));
   };
 
   const { rgb, hsl, hsv, hex, alpha } = col;
 
   const variables = {
-    "--rpc-background": theme?.background || "#fff",
-    "--rpc-color": theme?.color || "#000",
-    "--rpc-border-color": theme?.borderColor || "#ddd",
-    "--rpc-border-radius": theme?.borderRadius || "5px",
-    "--rpc-box-shadow": theme?.boxShadow || "0px 8px 16px rgba(0, 0, 0, 0.1)",
-    "--rpc-width": theme?.width || "310px"
+    '--rpc-background': theme?.background || themes.light.background,
+    '--rpc-color': theme?.color || themes.light.color,
+    '--rpc-border-color': theme?.borderColor || themes.light.borderColor,
+    '--rpc-border-radius': theme?.borderRadius || themes.light.borderRadius,
+    '--rpc-box-shadow': theme?.boxShadow || themes.light.boxShadow,
+    '--rpc-width': theme?.width || themes.light.width,
   } as React.CSSProperties;
 
   const colorVariables = {
-    "--rpc-hue": hsl.h,
-    "--rpc-red": rgb.r,
-    "--rpc-green": rgb.g,
-    "--rpc-blue": rgb.b,
-    "--rpc-hex": hex,
-    "--rpc-alpha": alpha,
-    "--rpc-rgba": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`,
-    "--rpc-hue-pointer": `${(hsl.h * 100) / 360}%`,
-    "--rpc-alpha-pointer": `${alpha * 100}%`,
-    "--rpc-saturation-pointer-top": `calc(${-(hsv.v * 100) + 100}% - 10px)`,
-    "--rpc-saturation-pointer-left": `calc(${hsv.s * 100}% - 10px)`
+    '--rpc-hue': hsl.h,
+    '--rpc-red': rgb.r,
+    '--rpc-green': rgb.g,
+    '--rpc-blue': rgb.b,
+    '--rpc-hex': hex,
+    '--rpc-alpha': alpha,
+    '--rpc-rgba': `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`,
+    '--rpc-hue-pointer': `${(hsl.h * 100) / 360}%`,
+    '--rpc-alpha-pointer': `${alpha * 100}%`,
+    '--rpc-saturation-pointer-top': `calc(${-(hsv.v * 100) + 100}% - 10px)`,
+    '--rpc-saturation-pointer-left': `calc(${hsv.s * 100}% - 10px)`,
   } as React.CSSProperties;
 
   return (
@@ -161,16 +163,17 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
           </div>
         )}
 
-        {colorSet && (
-          <ColorList
-            colors={colorSet}
+        {presets && (
+          <PresetList
+            colors={presets}
             onClick={(val) => setCol(initColor(val))}
+            currentColor={col.rgb}
           />
         )}
 
-        {showCombination && (
+        {combinations && (
           <ColorList
-            colors={getColorCombination(col, showCombination)}
+            colors={getColorCombination(col, combinations)}
             onClick={(val) => setCol(initColor(val))}
           />
         )}

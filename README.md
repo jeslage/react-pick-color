@@ -17,11 +17,11 @@ yarn add react-pick-color
 **Add to app**
 
 ```js
-import React, { useState } from "react";
-import ColorPicker from "react-pick-color";
+import React, { useState } from 'react';
+import ColorPicker from 'react-pick-color';
 
 const App = () => {
-  const [color, setColor] = useState("#fff");
+  const [color, setColor] = useState('#fff');
 
   return (
     <ColorPicker color={color} onChange={(color) => setColor(color.hex)} />
@@ -43,11 +43,11 @@ The initial color as a hex string or rgba/hsla object.
 
 onChange callback with the current color object.
 
-**`colorSets`**
+**`presets`**
 
 `array` | optional
 
-**`showCombination`**
+**`combinations`**
 
 `"analogous" | "monochromatic" | "splitcomplement" | "triad" | "tetrad" | "complement"` | optional
 
@@ -55,13 +55,19 @@ onChange callback with the current color object.
 
 `boolean` | optional | default: `false`
 
-Disable the alpha range handler.
+Hide the alpha range handler.
+
+**`hideInputs`**
+
+`boolean` | optional | default: `false`
+
+Hide color inputs
 
 ## Hooks
 
 ```js
-import { useColor } from "react-pick-color";
+import { useColor } from 'react-pick-color';
 
 // A color as a hex string or rgba/hsla object. Will return a color object.
-const { hex, rgb, hsl, hsv, alpha } = useColor("#fff");
+const { hex, rgb, hsl, hsv, alpha } = useColor('#fff');
 ```
