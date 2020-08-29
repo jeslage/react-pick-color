@@ -6,8 +6,7 @@ export const gradient: React.CSSProperties = {
   left: 0,
   bottom: 0,
   right: 0,
-  borderTopLeftRadius: "var(--rpc-border-radius)",
-  borderTopRightRadius: "var(--rpc-border-radius)"
+  borderRadius: "var(--rpc-border-radius)"
 };
 
 export const color: React.CSSProperties = {
@@ -15,9 +14,8 @@ export const color: React.CSSProperties = {
   height: "200px",
   position: "relative",
   background: `hsl(var(--rpc-hue),100%, 50%)`,
-  borderTopLeftRadius: "var(--rpc-border-radius)",
-  borderTopRightRadius: "var(--rpc-border-radius)",
-  borderBottom: "1px solid var(--rpc-border-color)"
+  borderRadius: "var(--rpc-border-radius)",
+  border: "1px solid var(--rpc-border-color)"
 };
 
 export const pointer: React.CSSProperties = {
@@ -28,9 +26,9 @@ export const pointer: React.CSSProperties = {
 };
 
 export const circle: React.CSSProperties = {
-  width: "12px",
-  borderRadius: "12px",
-  height: "12px",
+  width: "6px",
+  borderRadius: "6px",
+  height: "6px",
   background: "var(--rpc-hex)",
   boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
   border: "2px solid var(--rpc-background)",

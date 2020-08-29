@@ -16,13 +16,14 @@ export const input: React.CSSProperties = {
   border: "none",
   borderRadius: "var(--rpc-border-radius)",
   padding: "5px 5px 5px 2px",
-  fontSize: "11px",
-  margin: "0"
+  fontSize: "10px",
+  margin: "0",
+  textTransform: "uppercase"
 };
 
 export const prefix: React.CSSProperties = {
   paddingLeft: "5px",
-  fontSize: "12px",
+  fontSize: "10px",
   color: "var(--rpc-borderColor)"
 };
 
@@ -31,7 +32,7 @@ export const label: React.CSSProperties = {
   flexDirection: "column",
   alignItems: "center",
   fontFamily: "sans-serif",
-  fontSize: "11px",
+  fontSize: "10px",
   fontWeight: "bold",
   color: "var(--rpc-color)"
 };

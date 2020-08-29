@@ -1,9 +1,9 @@
-import React from 'react';
-import tinycolor from 'tinycolor2';
+import React from "react";
+import tinycolor from "tinycolor2";
 
-import * as styles from './ColorList.style';
+import * as styles from "./ColorList.style";
 
-import { RgbColor, Color } from '../../types';
+import { RgbColor, Color } from "../../types";
 
 interface ColorListProps {
   colors: Color[];
