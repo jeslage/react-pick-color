@@ -5,8 +5,7 @@ export const gradient: React.CSSProperties = {
   top: 0,
   left: 0,
   bottom: 0,
-  right: 0,
-  borderRadius: "var(--rpc-border-radius)"
+  right: 0
 };
 
 export const color: React.CSSProperties = {
@@ -16,7 +15,8 @@ export const color: React.CSSProperties = {
   position: "relative",
   background: `hsl(var(--rpc-hue),100%, 50%)`,
   borderRadius: "var(--rpc-border-radius)",
-  border: "1px solid var(--rpc-border-color)"
+  border: "1px solid var(--rpc-border-color)",
+  overflow: "hidden"
 };
 
 export const pointer: React.CSSProperties = {
