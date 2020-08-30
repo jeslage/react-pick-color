@@ -13,6 +13,7 @@ import {
 } from "../../types";
 
 import { initColor, getColorCombination } from "./helper";
+import themes from "../../themes";
 
 import Hue from "../Hue/Hue";
 import Alpha from "../Alpha/Alpha";
@@ -24,7 +25,6 @@ import RgbaInput from "../RgbaInput/RgbaInput";
 
 import * as styles from "./ColorPicker.style";
 import PresetList from "../PresetList/PresetList";
-import { themes } from "../..";
 
 export interface ColorPickerProps {
   theme?: Partial<Theme>;

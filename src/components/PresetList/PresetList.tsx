@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { RgbColor, Color, ColorObject } from '../../types';
-import ColorList from '../ColorList/ColorList';
+import { RgbColor, Color } from "../../types";
+import ColorList from "../ColorList/ColorList";
 
 interface PresetListProps {
   colors: Color[];
@@ -12,18 +12,18 @@ interface PresetListProps {
 const PresetList: React.FC<PresetListProps> = ({
   colors,
   onClick,
-  currentColor,
+  currentColor
 }) => {
   const [localColors, setLocalColors] = useState<RgbColor[]>([]);
 
   useEffect(() => {
-    const localString = window.localStorage.getItem('rpc-presets');
-    const localColors = JSON.parse(localString || '[]') as RgbColor[];
+    const localString = window.localStorage.getItem("rpc-presets");
+    const localColors = JSON.parse(localString || "[]") as RgbColor[];
     setLocalColors(localColors);
   }, [colors]);
 
   useEffect(() => {
-    window.localStorage.setItem('rpc-presets', JSON.stringify(localColors));
+    window.localStorage.setItem("rpc-presets", JSON.stringify(localColors));
   }, [localColors]);
 
   const addPreset = () => {
