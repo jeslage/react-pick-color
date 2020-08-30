@@ -14,7 +14,7 @@ interface ColorListProps {
 
 const ColorList: React.FC<ColorListProps> = ({ colors, onClick, onAdd }) => (
   <div style={styles.container}>
-    {colors.map((color) => {
+    {colors.map((color, index) => {
       const col = tinycolor(color);
 
       if (!col.isValid()) {
@@ -25,6 +25,7 @@ const ColorList: React.FC<ColorListProps> = ({ colors, onClick, onAdd }) => (
 
       return (
         <button
+          key={index}
           style={styles.button}
           onClick={() => onClick(rgb)}
           type="button"
