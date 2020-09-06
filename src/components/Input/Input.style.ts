@@ -1,12 +1,10 @@
-import React from "react";
-
 export const wrapper: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   color: "var(--rpc-color)",
   border: "1px solid var(--rpc-border-color)",
   borderRadius: "var(--rpc-border-radius)",
-  marginBottom: "3px"
+  margin: "0.1rem"
 };
 
 export const input: React.CSSProperties = {
@@ -15,7 +13,7 @@ export const input: React.CSSProperties = {
   color: "var(--rpc-color)",
   border: "none",
   borderRadius: "var(--rpc-border-radius)",
-  padding: "5px 5px 5px 2px",
+  padding: "5px",
   fontSize: "10px",
   margin: "0",
   textTransform: "uppercase"

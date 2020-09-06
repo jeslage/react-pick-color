@@ -9,6 +9,28 @@ export const container: React.CSSProperties = {
   border: "1px solid var(--rpc-border-color)"
 };
 
+export const checkboard: React.CSSProperties = {
+  position: "relative",
+  width: "30px",
+  height: "30px",
+  borderRadius: "var(--rpc-border-radius)",
+  overflow: "hidden",
+  boxShadow: "0 0 2px 0px rgba(0, 0, 0, .2)",
+  backgroundImage:
+    'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAC9JREFUOBFjZGBgEAFifOANPkkmfJLEyI0awMAw8GHASERU4U0nA++FURdQISEBAFeUATP+HuV8AAAAAElFTkSuQmCC")',
+  backgroundPosition: "left center"
+};
+
+export const value: React.CSSProperties = {
+  position: "absolute",
+  top: "0px",
+  right: "0px",
+  bottom: "0px",
+  left: "0px",
+  background: "var(--rpc-rgba)",
+  zIndex: 1
+};
+
 export const flex: React.CSSProperties = {
   margin: "0.4rem 0.4rem",
   width: "calc(100% - 0.8rem)",
@@ -28,7 +50,7 @@ export const colors: React.CSSProperties = {
 };
 
 export const inputs: React.CSSProperties = {
-  margin: "0 0.4rem 0.4rem",
+  margin: "0 0.3rem 0.3rem",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between"

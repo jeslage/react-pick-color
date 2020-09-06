@@ -30,7 +30,6 @@ export const circle: React.CSSProperties = {
   width: "6px",
   borderRadius: "6px",
   height: "6px",
-  background: "var(--rpc-hex)",
   boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
   border: "2px solid var(--rpc-background)",
   cursor: "hand"

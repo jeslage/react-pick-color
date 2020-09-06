@@ -20,7 +20,6 @@ export const slider: React.CSSProperties = {
   width: "6px",
   borderRadius: "6px",
   height: "6px",
-  background: `hsl(var(--rpc-hue), 100%, 50%)`,
   boxShadow: "0 0 1px rgba(0, 0, 0, .9)",
   border: "2px solid var(--rpc-background)",
   transform: "translate(-5px, 1px)",

@@ -34,8 +34,7 @@ export const slider: React.CSSProperties = {
   boxShadow: "0 0 1px rgba(0, 0, 0, .9)",
   border: "2px solid var(--rpc-background)",
   transform: "translate(-5px, 1px)",
-  cursor: "pointer",
-  background: "var(--rpc-rgba)"
+  cursor: "pointer"
 };
 
 export const checkboard: React.CSSProperties = {

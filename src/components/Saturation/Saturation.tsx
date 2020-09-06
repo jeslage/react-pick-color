@@ -1,44 +1,37 @@
-import React, { useRef } from "react";
+import React, { useCallback } from "react";
 
-import { calculateSaturation } from "./helper";
 import { HslColor, HsvColor } from "../../types";
+import usePosition, { Position } from "../../hooks/usePosition";
+
 import * as styles from "./Saturation.style";
 
-interface SaturationProps {
+export type SaturationProps = {
   hsl: HslColor;
   onChange?: (color: HsvColor) => void;
-}
+};
 
-const Saturation: React.FC<SaturationProps> = ({ hsl, onChange }) => {
-  const container = useRef<HTMLDivElement>(null);
+const Saturation = ({ hsl, onChange }: SaturationProps) => {
+  const handleMove = useCallback(
+    ({ left, top }: Position) =>
+      onChange &&
+      onChange({
+        ...hsl,
+        s: left,
+        v: 1 - top
+      }),
+    [onChange]
+  );
 
-  const handleChange = (
-    e: React.TouchEvent | React.MouseEvent | MouseEvent
-  ) => {
-    if (container.current) {
-      const change = calculateSaturation(e, hsl, container.current);
-      change && typeof onChange === "function" && onChange(change);
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    handleChange(e);
-    window.addEventListener("mousemove", handleChange);
-    window.addEventListener("mouseup", handleMouseUp);
-  };
-
-  const handleMouseUp = () => {
-    window.removeEventListener("mousemove", handleChange);
-    window.removeEventListener("mouseup", handleMouseUp);
-  };
+  const { ref, handleStart } = usePosition({
+    onMove: handleMove
+  });
 
   return (
     <div
       style={styles.color}
-      ref={container}
-      onMouseDown={handleMouseDown}
-      onTouchMove={handleChange}
-      onTouchStart={handleChange}
+      ref={ref}
+      onTouchStart={handleStart}
+      onMouseDown={handleStart}
     >
       <style>{`
         .saturation-white {
@@ -60,4 +53,4 @@ const Saturation: React.FC<SaturationProps> = ({ hsl, onChange }) => {
   );
 };
 
-export default Saturation;
+export default React.memo(Saturation) as typeof Saturation;

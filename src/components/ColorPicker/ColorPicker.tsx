@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import tinycolor from "tinycolor2";
-
 import {
   Color,
-  HslColor,
   ColorObject,
-  AlphaType,
-  HsvColor,
   ColorCombination,
-  RgbColor,
-  Theme
+  Theme,
+  HslColor,
+  HsvColor
 } from "../../types";
 
 import { initColor, getColorCombination } from "./helper";
@@ -17,16 +14,14 @@ import themes from "../../themes";
 
 import Hue from "../Hue/Hue";
 import Alpha from "../Alpha/Alpha";
-import Value from "../Value/Value";
 import ColorList from "../ColorList/ColorList";
 import Saturation from "../Saturation/Saturation";
-import HexInput from "../HexInput/HexInput";
-import RgbaInput from "../RgbaInput/RgbaInput";
-
-import * as styles from "./ColorPicker.style";
 import PresetList from "../PresetList/PresetList";
 
-export interface ColorPickerProps {
+import * as styles from "./ColorPicker.style";
+import Input from "../Input/Input";
+
+export type ColorPickerProps = {
   theme?: Partial<Theme>;
   color?: Color;
   presets?: Color[];
@@ -35,9 +30,9 @@ export interface ColorPickerProps {
   hideInputs?: boolean;
   combinations?: ColorCombination | ColorCombination[];
   className?: string;
-}
+};
 
-const ColorPicker: React.FC<ColorPickerProps> = ({
+const ColorPicker = ({
   theme,
   color,
   presets,
@@ -46,24 +41,30 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   hideInputs,
   className,
   combinations
-}) => {
+}: ColorPickerProps) => {
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
   useEffect(() => {
-    onChange && typeof onChange === "function" && onChange(col);
+    onChange && onChange(col);
   }, [col]);
 
-  const updateHue = (hsl: HslColor) => {
-    const color = tinycolor({ h: hsl.h, s: hsl.s, l: hsl.l });
+  const updateColor = useCallback(
+    (updatedColor: Color) => setCol(initColor(updatedColor)),
+    [col]
+  );
 
-    setCol({
-      hsl: { ...col.hsl, h: hsl.h },
-      rgb: { ...color.toRgb(), a: hsl.a },
-      hex: color.toHexString(),
-      hsv: { ...col.hsv, h: color.toHsv().h },
-      alpha: hsl.a
-    });
-  };
+  const updateAlpha = useCallback(
+    (alpha: number) => {
+      setCol((prev) => ({
+        ...prev,
+        rgb: { ...prev.rgb, a: alpha },
+        hsl: { ...prev.hsl, a: alpha },
+        hsv: { ...prev.hsv, a: alpha },
+        alpha
+      }));
+    },
+    [col]
+  );
 
   const updateSaturation = (hsv: HsvColor) => {
     const color = tinycolor({ h: hsv.h, s: hsv.s, v: hsv.v });
@@ -77,40 +78,16 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     });
   };
 
-  const updateHex = (hex: string) => {
-    const color = tinycolor(hex);
+  const updateHue = (hsl: HslColor) => {
+    const color = tinycolor({ h: hsl.h, s: hsl.s, l: hsl.l });
 
     setCol({
-      hsl: { ...color.toHsl(), h: hsl.h, a: hsv.a },
-      rgb: { ...color.toRgb(), a: hsv.a },
-      hex: hex,
-      hsv: color.toHsv(),
-      alpha: color.getAlpha()
-    });
-  };
-
-  const updateAlpha = (alpha: AlphaType) => {
-    setCol((prev) => ({
-      ...prev,
-      rgb: { ...prev.rgb, a: alpha },
-      hsl: { ...prev.hsl, a: alpha },
-      hsv: { ...prev.hsv, a: alpha },
-      alpha
-    }));
-  };
-
-  const updateRgba = (rgba: RgbColor) => {
-    const { a, ...rgb } = rgba;
-    const color = tinycolor(rgb);
-
-    setCol((prev) => ({
-      ...prev,
-      rgb: { ...rgb, a },
+      hsl: { ...col.hsl, h: hsl.h },
+      rgb: { ...color.toRgb(), a: hsl.a },
       hex: color.toHexString(),
-      hsl: { ...color.toHsl(), a },
-      hsv: { ...color.toHsv(), a },
-      alpha: a
-    }));
+      hsv: { ...col.hsv, h: color.toHsv().h },
+      alpha: hsl.a
+    });
   };
 
   const { rgb, hsl, hsv, hex, alpha } = col;
@@ -138,48 +115,120 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     "--rpc-saturation-pointer-left": `calc(${hsv.s * 100}% - 5px)`
   } as React.CSSProperties;
 
+  const handleHexInput = (val: string) => {
+    if (!/^[0-9A-Fa-f]+$/.test(val)) return;
+    const hex = tinycolor(`#${val}`);
+    console.log(hex);
+    setCol({
+      hex: `#${val}`,
+      rgb: hex.toRgb(),
+      hsl: hex.toHsl(),
+      hsv: hex.toHsv(),
+      alpha: hex.getAlpha()
+    });
+  };
+
+  const handleRgbaInput = (key: string, val: string) => {
+    if (val === "" || val.length > 3) return;
+    const newValue = key === "a" ? parseInt(val) / 100 : parseInt(val);
+    updateColor({ ...rgb, [key]: newValue });
+  };
+
   return (
-    <div style={{ ...variables, ...styles.container }} className={className}>
-      <div style={colorVariables}>
-        <Saturation hsl={hsl} onChange={updateSaturation} />
+    <div
+      style={{ ...variables, ...styles.container, ...colorVariables }}
+      className={className}
+    >
+      <Saturation hsl={hsl} onChange={updateSaturation} />
 
-        <div style={styles.flex}>
-          <Value />
-
-          <div style={styles.ranges}>
-            <Hue hsl={hsl} onChange={updateHue} />
-            {!hideAlpha && <Alpha rgb={rgb} onChange={updateAlpha} />}
-          </div>
+      <div style={styles.flex}>
+        <div style={styles.checkboard}>
+          <div style={styles.value} />
         </div>
 
-        {!hideInputs && (
-          <div style={styles.inputs}>
-            <HexInput value={hex} name="hex" onChange={updateHex} />
-            <RgbaInput
-              value={rgb}
-              onChange={updateRgba}
-              hideAlpha={hideAlpha}
-            />
-          </div>
-        )}
-
-        {presets && (
-          <PresetList
-            colors={presets}
-            onClick={(val) => setCol(initColor(val))}
-            currentColor={col.rgb}
-          />
-        )}
-
-        {combinations && (
-          <ColorList
-            colors={getColorCombination(col, combinations)}
-            onClick={(val) => setCol(initColor(val))}
-          />
-        )}
+        <div style={styles.ranges}>
+          <Hue hsl={hsl} onChange={updateHue} />
+          {!hideAlpha && <Alpha onChange={updateAlpha} />}
+        </div>
       </div>
+
+      {!hideInputs && (
+        <div style={styles.inputs}>
+          <Input
+            type="text"
+            name="hex"
+            label="Hex"
+            size="large"
+            prefix="#"
+            onChange={(val) => handleHexInput(val)}
+            maxLength={6}
+            value={hex.replace("#", "")}
+          />
+
+          <Input
+            value={rgb.r}
+            label="R"
+            name="red"
+            type="number"
+            min={0}
+            max={255}
+            step={1}
+            onChange={(val) => handleRgbaInput("r", val)}
+          />
+
+          <Input
+            value={rgb.g}
+            label="G"
+            name="green"
+            type="number"
+            min={0}
+            max={255}
+            step={1}
+            onChange={(val) => handleRgbaInput("g", val)}
+          />
+
+          <Input
+            value={rgb.b}
+            label="B"
+            name="blue"
+            type="number"
+            min={0}
+            max={255}
+            step={1}
+            onChange={(val) => handleRgbaInput("b", val)}
+          />
+
+          {!hideAlpha && (
+            <Input
+              value={rgb.a * 100}
+              label="A"
+              name="alpha"
+              type="number"
+              min={0}
+              max={100}
+              step={1}
+              onChange={(val) => handleRgbaInput("a", val)}
+            />
+          )}
+        </div>
+      )}
+
+      {presets && (
+        <PresetList
+          colors={presets}
+          onClick={updateColor}
+          currentColor={col.rgb}
+        />
+      )}
+
+      {combinations && (
+        <ColorList
+          colors={getColorCombination(col, combinations)}
+          onClick={updateColor}
+        />
+      )}
     </div>
   );
 };
 
-export default ColorPicker;
+export default React.memo(ColorPicker) as typeof ColorPicker;

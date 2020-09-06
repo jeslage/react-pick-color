@@ -1,45 +1,28 @@
-import React, { useRef } from 'react';
+import React, { useCallback } from "react";
 
-import { calculateAlpha } from './helper';
-import { RgbColor, AlphaType } from '../../types';
+import * as styles from "./Alpha.style";
+import usePosition, { Position } from "../../hooks/usePosition";
 
-import * as styles from './Alpha.style';
+type AlphaProps = {
+  onChange?: (alpha: number) => void;
+};
 
-interface AlphaProps {
-  rgb: RgbColor;
-  onChange?: (alpha: AlphaType) => void;
-}
+const Alpha = ({ onChange }: AlphaProps) => {
+  const handleMove = useCallback(
+    ({ left }: Position) => onChange && onChange(parseFloat(left.toFixed(2))),
+    [onChange]
+  );
 
-const Alpha: React.FC<AlphaProps> = ({ rgb, onChange }) => {
-  const container = useRef<HTMLDivElement>(null);
-
-  const handleChange = (
-    e: React.TouchEvent | React.MouseEvent | MouseEvent
-  ) => {
-    if (container.current) {
-      const change = calculateAlpha(e, rgb.a, container.current);
-      change >= 0 && typeof onChange === 'function' && onChange(change);
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    handleChange(e);
-    window.addEventListener('mousemove', handleChange);
-    window.addEventListener('mouseup', handleMouseUp);
-  };
-
-  const handleMouseUp = () => {
-    window.removeEventListener('mousemove', handleChange);
-    window.removeEventListener('mouseup', handleMouseUp);
-  };
+  const { ref, handleStart } = usePosition({
+    onMove: handleMove
+  });
 
   return (
     <div
       style={styles.container}
-      ref={container}
-      onMouseDown={(e) => handleMouseDown(e)}
-      onTouchMove={(e) => handleChange(e)}
-      onTouchStart={(e) => handleChange(e)}
+      ref={ref}
+      onTouchStart={handleStart}
+      onMouseDown={handleStart}
     >
       <div style={styles.alpha} />
       <div style={styles.checkboard} />
@@ -50,4 +33,4 @@ const Alpha: React.FC<AlphaProps> = ({ rgb, onChange }) => {
   );
 };
 
-export default Alpha;
+export default React.memo(Alpha) as typeof Alpha;
