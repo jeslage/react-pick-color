@@ -2,7 +2,7 @@
 
 # React Pick Color
 
-Small color picker component for react written in TypeScript.
+Small color picker component for React.
 
 ![Screenshot](./assets/react-pick-color.jpg)
 
@@ -52,6 +52,8 @@ onChange callback with the current color object.
 #### `combinations`
 
 `"analogous" | "monochromatic" | "splitcomplement" | "triad" | "tetrad" | "complement"` | optional
+
+Provide `combinations` as a string or an array of `combinations`.
 
 #### `hideAlpha`
 

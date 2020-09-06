@@ -1,6 +1,6 @@
 {
   "name": "react-pick-color",
-  "description": "A tiny color picker for react",
+  "description": "A small color picker for react",
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -18,11 +18,11 @@
   "size-limit": [
     {
       "path": "build/index.js",
-      "limit": "5 KB"
+      "limit": "8 KB"
     },
     {
       "path": "build/index.es.js",
-      "limit": "5 KB"
+      "limit": "8 KB"
     }
   ],
   "repository": {
