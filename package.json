@@ -13,7 +13,9 @@
     "build": "yarn clean && rollup -c",
     "size": "yarn build && size-limit",
     "test": "jest",
-    "test:update": "jest -u"
+    "prepare": "yarn build",
+    "test:update": "jest -u",
+    "type-check": "tsc --pretty --noEmit"
   },
   "size-limit": [
     {

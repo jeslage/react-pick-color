@@ -1,8 +1,5 @@
-import React, { useState, FC } from "react";
-
-import ColorPicker from "../../src/components/ColorPicker/ColorPicker";
-import { initColor } from "../../src/components/ColorPicker/helper";
-import theme from "../../src/themes";
+import React, { useState } from "react";
+import ColorPicker, { themes } from "react-pick-color";
 
 export default {
   title: "ColorPicker",
@@ -11,7 +8,7 @@ export default {
     color: { control: "color" },
     theme: {
       control: "object",
-      defaultValue: theme.light
+      defaultValue: themes.light
     },
     presets: { control: "array" },
     combinations: { control: "array" },
@@ -25,7 +22,7 @@ export default {
 };
 
 const Template = (args: any) => {
-  const [color, setColor] = useState(initColor(args.color));
+  const [color, setColor] = useState(args.color);
 
   return (
     <div
@@ -108,7 +105,7 @@ WithLightTheme.args = {
 export const WithDarkTheme = Template.bind({});
 // @ts-ignore
 WithDarkTheme.args = {
-  theme: theme.dark,
+  theme: themes.dark,
   combinations: ["analogous", "complement", "monochromatic"],
   presets: ["crimson", "darkgreen", "navy"]
 };
