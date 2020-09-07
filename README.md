@@ -1,8 +1,8 @@
 ![Screenshot](./assets/react-pick-color.jpg)
 
-## 🚧 Work in progress 🚧
+# React Pick Color
 
-Small color picker component for React.
+Small color picker component for React written in TypeScript.
 
 ## Install
 
