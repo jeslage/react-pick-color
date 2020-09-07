@@ -20,7 +20,7 @@ export default {
     width: { control: "text" }
   },
   args: {
-    color: "#3573CB"
+    color: "#D80B4D"
   }
 };
 

@@ -1,45 +1,32 @@
-import React, { useRef } from "react";
+import React, { useCallback } from "react";
 
-import { calculateHue } from "./helper";
 import { HslColor } from "../../types";
 
 import * as styles from "./Hue.style";
+import usePosition, { Position } from "../../hooks/usePosition";
 
-interface HueProps {
+type HueProps = {
   hsl: HslColor;
   onChange?: (color: HslColor) => void;
-}
+};
 
-const Hue: React.FC<HueProps> = ({ hsl, onChange }) => {
-  const container = useRef<HTMLDivElement>(null);
+const Hue = ({ hsl, onChange }: HueProps) => {
+  const handleMove = useCallback(
+    ({ left }: Position) =>
+      onChange && onChange({ h: 360 * left, s: hsl.s, l: hsl.l, a: hsl.a }),
+    [onChange]
+  );
 
-  const handleChange = (
-    e: React.TouchEvent | React.MouseEvent | MouseEvent
-  ) => {
-    if (container.current) {
-      const change = calculateHue(e, hsl, container.current);
-      change && typeof onChange === "function" && onChange(change);
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    handleChange(e);
-    window.addEventListener("mousemove", handleChange);
-    window.addEventListener("mouseup", handleMouseUp);
-  };
-
-  const handleMouseUp = () => {
-    window.removeEventListener("mousemove", handleChange);
-    window.removeEventListener("mouseup", handleMouseUp);
-  };
+  const { ref, handleStart } = usePosition({
+    onMove: handleMove
+  });
 
   return (
     <div
       style={styles.container}
-      ref={container}
-      onMouseDown={(e) => handleMouseDown(e)}
-      onTouchMove={(e) => handleChange(e)}
-      onTouchStart={(e) => handleChange(e)}
+      ref={ref}
+      onTouchStart={handleStart}
+      onMouseDown={handleStart}
     >
       <div style={styles.pointer}>
         <div style={styles.slider} />
@@ -48,4 +35,4 @@ const Hue: React.FC<HueProps> = ({ hsl, onChange }) => {
   );
 };
 
-export default Hue;
+export default React.memo(Hue) as typeof Hue;

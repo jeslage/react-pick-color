@@ -21,17 +21,15 @@ export const color: React.CSSProperties = {
 
 export const pointer: React.CSSProperties = {
   position: "absolute",
+  cursor: "hand",
   top: "var(--rpc-saturation-pointer-top)",
-  left: "var(--rpc-saturation-pointer-left)",
-  cursor: "default"
+  left: "var(--rpc-saturation-pointer-left)"
 };
 
 export const circle: React.CSSProperties = {
-  width: "6px",
-  borderRadius: "6px",
-  height: "6px",
-  background: "var(--rpc-hex)",
-  boxShadow: "0 0 2px rgba(0, 0, 0, .9)",
-  border: "2px solid var(--rpc-background)",
-  cursor: "hand"
+  width: "8px",
+  borderRadius: "8px",
+  height: "8px",
+  boxShadow: "0 0 1px rgba(0, 0, 0, .9)",
+  border: "2px solid #fff"
 };

@@ -1,6 +1,6 @@
 {
   "name": "react-pick-color",
-  "description": "A tiny color picker for react",
+  "description": "A modern color picker for react",
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -11,9 +11,20 @@
   "scripts": {
     "clean": "rm -rf build",
     "build": "yarn clean && rollup -c",
+    "size": "yarn build && size-limit",
     "test": "jest",
     "test:update": "jest -u"
   },
+  "size-limit": [
+    {
+      "path": "build/index.js",
+      "limit": "8 KB"
+    },
+    {
+      "path": "build/index.es.js",
+      "limit": "8 KB"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jeslage/react-pick-color"
@@ -29,11 +40,12 @@
     "url": "https://github.com/jeslage/react-pick-color/issues"
   },
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@size-limit/preset-app": "^4.5.7",
     "@storybook/react": "^5.2.6",
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
@@ -53,6 +65,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "^7.0.1",
     "rollup-plugin-typescript2": "^0.25.2",
+    "size-limit": "^4.5.7",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
   },

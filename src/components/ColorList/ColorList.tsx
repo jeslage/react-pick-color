@@ -5,14 +5,14 @@ import * as styles from "./ColorList.style";
 
 import { RgbColor, Color } from "../../types";
 
-interface ColorListProps {
+type ColorListProps = {
   colors: Color[];
   additionalStyles?: React.CSSProperties;
   onClick: (color: RgbColor) => void;
   onAdd?: () => void;
-}
+};
 
-const ColorList: React.FC<ColorListProps> = ({ colors, onClick, onAdd }) => (
+const ColorList = ({ colors, onClick, onAdd }: ColorListProps) => (
   <div style={styles.container}>
     {colors.map((color, index) => {
       const col = tinycolor(color);
@@ -52,4 +52,4 @@ const ColorList: React.FC<ColorListProps> = ({ colors, onClick, onAdd }) => (
   </div>
 );
 
-export default ColorList;
+export default React.memo(ColorList) as typeof ColorList;

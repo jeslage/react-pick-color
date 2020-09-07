@@ -21,6 +21,7 @@ export const button: React.CSSProperties = {
   border: "1px solid var(--rpc-border-color)",
   overflow: "hidden",
   position: "relative",
+  background: "none",
   gridColumnEnd: "span 1"
 };
 
@@ -34,7 +35,7 @@ export const addButton: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   cursor: "pointer",
-  border: "1px solid var(--rpc-border-color)",
+  border: "none",
   borderRadius: "var(--rpc-border-radius)",
   gridColumnEnd: "span 1"
 };
