@@ -16,7 +16,7 @@ const theme: Themes = {
     width: "280px"
   },
   dark: {
-    background: "rgba(40, 40, 40, 0.85)",
+    background: "rgba(40, 40, 40, 0.95)",
     inputBackground: "#454545",
     color: "#E3E3E3",
     borderRadius: "5px",

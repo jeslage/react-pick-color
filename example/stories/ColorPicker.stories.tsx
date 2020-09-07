@@ -20,7 +20,7 @@ export default {
     width: { control: "text" }
   },
   args: {
-    color: "#3573CB"
+    color: "#D80B4D"
   }
 };
 
@@ -31,10 +31,10 @@ const Template = (args: any) => {
     <div
       style={{
         height: "100%",
-        width: "100%"
-        // backgroundImage:
-        //   'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAC9JREFUOBFjZGBgEAFifOANPkkmfJLEyI0awMAw8GHASERU4U0nA++FURdQISEBAFeUATP+HuV8AAAAAElFTkSuQmCC")',
-        // backgroundPosition: "left center"
+        width: "100%",
+        backgroundImage:
+          'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAC9JREFUOBFjZGBgEAFifOANPkkmfJLEyI0awMAw8GHASERU4U0nA++FURdQISEBAFeUATP+HuV8AAAAAElFTkSuQmCC")',
+        backgroundPosition: "left center"
       }}
     >
       <div
@@ -44,11 +44,11 @@ const Template = (args: any) => {
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
-          padding: "40px 0"
-          // background:
-          //   color.alpha < 1
-          //     ? `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.alpha})`
-          //     : color.hex
+          padding: "40px 0",
+          background:
+            color.alpha < 1
+              ? `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.alpha})`
+              : color.hex
         }}
       >
         <ColorPicker {...args} onChange={(col) => setColor(col)} />
