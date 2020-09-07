@@ -19,11 +19,11 @@ yarn add react-pick-color
 **Add to app**
 
 ```js
-import React, { useState } from 'react';
-import ColorPicker from 'react-pick-color';
+import React, { useState } from "react";
+import ColorPicker from "react-pick-color";
 
 const App = () => {
-  const [color, setColor] = useState('#fff');
+  const [color, setColor] = useState("#fff");
 
   return (
     <ColorPicker color={color} onChange={(color) => setColor(color.hex)} />
@@ -76,19 +76,19 @@ You can add a custom theme for styling the colorpicker component or choose one f
 #### Custom Theme
 
 ```js
-import ColorPicker from 'react-pick-color';
+import ColorPicker from "react-pick-color";
 
 const ThemedColorPicker = () => {
   return (
     <ColorPicker
       color="#3573CB"
       theme={{
-        background: 'lightgrey',
-        inputBackground: 'grey',
-        borderColor: 'darkgrey',
-        borderRadius: '8px',
-        color: 'black',
-        width: '320px',
+        background: "lightgrey",
+        inputBackground: "grey",
+        borderColor: "darkgrey",
+        borderRadius: "8px",
+        color: "black",
+        width: "320px"
       }}
     />
   );
@@ -100,7 +100,7 @@ const ThemedColorPicker = () => {
 `react-pick-color` exports a `dark` and a `light` theme.
 
 ```js
-import ColorPicker, { themes } from 'react-pick-color';
+import ColorPicker, { themes } from "react-pick-color";
 
 const ThemedColorPicker = () => {
   return <ColorPicker color="#3573CB" theme={themes.dark} />;
@@ -110,10 +110,10 @@ const ThemedColorPicker = () => {
 ## Hooks
 
 ```js
-import { useColor } from 'react-pick-color';
+import { useColor } from "react-pick-color";
 
 // A color as a hex string or rgba/hsla object. Will return a color object.
-const { hex, rgb, hsl, hsv, alpha } = useColor('#fff');
+const { hex, rgb, hsl, hsv, alpha } = useColor("#fff");
 ```
 
 ## Roadmap
