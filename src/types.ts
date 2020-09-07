@@ -14,18 +14,19 @@ export type ColorObject = {
 };
 
 export type ColorCombination =
-  | "analogous"
-  | "monochromatic"
-  | "splitcomplement"
-  | "triad"
-  | "tetrad"
-  | "complement";
+  | 'analogous'
+  | 'monochromatic'
+  | 'splitcomplement'
+  | 'triad'
+  | 'tetrad'
+  | 'complement';
 
 export type Theme = {
-  background: string;
-  color: string;
-  borderColor: string;
-  borderRadius: string;
-  boxShadow: string;
-  width: string;
+  background?: string;
+  inputBackground?: string;
+  color?: string;
+  borderColor?: string;
+  borderRadius?: string;
+  boxShadow?: string;
+  width?: string;
 };
