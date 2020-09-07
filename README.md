@@ -35,15 +35,21 @@ const App = () => {
 
 The initial color as a hex string or rgba/hsla object.
 
+---
+
 **`onChange`**
 
 `(color: { hex: string, rgb: object, hsl: object, alpha: number }) => void` | optional
 
 onChange callback with the current color object.
 
+---
+
 **`presets`**
 
 `array` | optional
+
+---
 
 **`combinations`**
 
@@ -51,17 +57,23 @@ onChange callback with the current color object.
 
 Provide `combinations` as a string or an array of `combinations`.
 
+---
+
 **`hideAlpha`**
 
 `boolean` | optional | default: `false`
 
 Hide the alpha range handler.
 
+---
+
 **`hideInputs`**
 
 `boolean` | optional | default: `false`
 
 Hide color inputs
+
+---
 
 **`theme`**
 
