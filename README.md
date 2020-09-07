@@ -31,7 +31,7 @@ const App = () => {
 
 **`color`**
 
-`string | { r: number, g: number, b: number, a: number } | { h: number, s: number, l: number, a: number }` | required
+`string | { r: number, g: number, b: number, a: number } | { h: number, s: number, l: number, a: number }` | optional
 
 The initial color as a hex string or rgba/hsla object.
 
