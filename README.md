@@ -114,3 +114,12 @@ import { useColor } from "react-pick-color";
 // A color as a hex string or rgba/hsla object. Will return a color object.
 const { hex, rgb, hsl, hsv, alpha } = useColor("#fff");
 ```
+
+## Roadmap
+
+- [ ] Size optimization
+- [ ] Build little demo site and codesandboxes
+- [ ] Write more tests
+- [ ] Remove tinycolor dependency
+- [ ] Add build pipeline
+- [ ] Different CSS solution

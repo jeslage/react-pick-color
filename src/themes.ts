@@ -22,14 +22,6 @@ const theme: Themes = {
     boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
     width: "280px"
   }
-  // round: {
-  //   background: "#f4f4f4",
-  //   color: "#555",
-  //   borderColor: "#ddd",
-  //   borderRadius: "20px",
-  //   boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)",
-  //   width: "280px"
-  // }
 };
 
 export default theme;
