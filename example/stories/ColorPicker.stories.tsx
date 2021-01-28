@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ColorPicker, { themes } from "react-pick-color";
+import ColorPicker, { themes, initColor } from "react-pick-color";
 
 export default {
   title: "ColorPicker",
@@ -8,21 +8,21 @@ export default {
     color: { control: "color" },
     theme: {
       control: "object",
-      defaultValue: themes.light
+      defaultValue: themes.light,
     },
     presets: { control: "array" },
     combinations: { control: "array" },
     hideAlpha: { control: "boolean" },
     hideInputs: { control: "boolean" },
-    width: { control: "text" }
+    width: { control: "text" },
   },
   args: {
-    color: "#D80B4D"
-  }
+    color: "#D80B4D",
+  },
 };
 
 const Template = (args: any) => {
-  const [color, setColor] = useState(args.color);
+  const [color, setColor] = useState<string>(args.color);
 
   return (
     <div
@@ -31,24 +31,43 @@ const Template = (args: any) => {
         width: "100%",
         backgroundImage:
           'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAC9JREFUOBFjZGBgEAFifOANPkkmfJLEyI0awMAw8GHASERU4U0nA++FURdQISEBAFeUATP+HuV8AAAAAElFTkSuQmCC")',
-        backgroundPosition: "left center"
+        backgroundPosition: "left center",
       }}
     >
       <div
         style={{
+          padding: "40px 0",
+          background: color,
           display: "flex",
           height: "100%",
           width: "100%",
           alignItems: "center",
+          flexDirection: "column",
           justifyContent: "center",
-          padding: "40px 0",
-          background:
-            color.alpha < 1
-              ? `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.alpha})`
-              : color.hex
         }}
       >
-        <ColorPicker {...args} onChange={(col) => setColor(col)} />
+        <ColorPicker
+          {...args}
+          color={color}
+          onChange={(col) => {
+            setColor(
+              col.alpha < 1
+                ? `rgba(${col.rgb.r},${col.rgb.g},${col.rgb.b},${col.alpha})`
+                : col.hex
+            );
+          }}
+        />
+
+        <div style={{ marginTop: "20px" }}>
+          <button onClick={() => setColor("#ff00ff")}>#ff00ff</button>
+          <button onClick={() => setColor("crimson")}>crimson</button>
+          <button onClick={() => setColor("rgba(13, 124, 12, 0.2)")}>
+            rgba(13, 124, 12, 0.2)
+          </button>
+          <button onClick={() => setColor("hsl(210, 100%, 50%)")}>
+            hsl(210, 100%, 50%)
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -85,21 +104,21 @@ WithPresets.args = {
     "purple",
     "papayawhip",
     "lightgreen",
-    "pink"
-  ]
+    "pink",
+  ],
 };
 
 export const WithCombinations = Template.bind({});
 // @ts-ignore
 WithCombinations.args = {
-  combinations: "monochromatic"
+  combinations: "monochromatic",
 };
 
 export const WithLightTheme = Template.bind({});
 // @ts-ignore
 WithLightTheme.args = {
   combinations: ["analogous", "complement", "monochromatic"],
-  presets: ["crimson", "darkgreen", "navy"]
+  presets: ["crimson", "darkgreen", "navy"],
 };
 
 export const WithDarkTheme = Template.bind({});
@@ -107,7 +126,7 @@ export const WithDarkTheme = Template.bind({});
 WithDarkTheme.args = {
   theme: themes.dark,
   combinations: ["analogous", "complement", "monochromatic"],
-  presets: ["crimson", "darkgreen", "navy"]
+  presets: ["crimson", "darkgreen", "navy"],
 };
 
 export const WithCustomTheme = Template.bind({});
@@ -118,8 +137,8 @@ WithCustomTheme.args = {
     color: "black",
     borderColor: "darkgrey",
     borderRadius: "8px",
-    width: "320px"
+    width: "320px",
   },
   combinations: ["analogous", "complement", "monochromatic"],
-  presets: ["crimson", "darkgreen", "navy"]
+  presets: ["crimson", "darkgreen", "navy"],
 };

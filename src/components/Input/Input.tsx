@@ -8,6 +8,7 @@ type InputProps = {
   type?: "number" | "text";
   label: string;
   onChange: (value: string) => void;
+  onBlur?: (value: string) => void;
   min?: number;
   max?: number;
   step?: number;
@@ -27,7 +28,8 @@ const Input = ({
   step,
   maxLength,
   size = "small",
-  onChange
+  onChange,
+  onBlur,
 }: InputProps) => {
   const width = size === "small" ? "33px" : "45px";
   return (
@@ -40,7 +42,10 @@ const Input = ({
           name={name}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          onBlur={(e) => onChange(e.target.value)}
+          onBlur={(e) => {
+            if (onBlur) return onBlur(e.target.value);
+            onChange(e.target.value);
+          }}
           style={{ ...styles.input, width }}
           spellCheck={false}
           maxLength={maxLength}

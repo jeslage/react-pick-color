@@ -1,13 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import tinycolor from "tinycolor2";
-import {
-  Color,
-  ColorObject,
-  ColorCombination,
-  Theme,
-  HslColor,
-  HsvColor
-} from "../../types";
+import { Color, ColorObject, ColorCombination, Theme } from "../../types";
 
 import { initColor, getColorCombination } from "./helper";
 import themes from "../../themes";
@@ -40,55 +33,26 @@ const ColorPicker = ({
   hideAlpha,
   hideInputs,
   className,
-  combinations
+  combinations,
 }: ColorPickerProps) => {
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
   useEffect(() => {
-    onChange && onChange(col);
-  }, [col]);
+    setCol(initColor(color));
+  }, [color]);
 
   const updateColor = useCallback(
-    (updatedColor: Color) => setCol(initColor(updatedColor)),
-    [col]
-  );
-
-  const updateAlpha = useCallback(
-    (alpha: number) => {
-      setCol((prev) => ({
-        ...prev,
-        rgb: { ...prev.rgb, a: alpha },
-        hsl: { ...prev.hsl, a: alpha },
-        hsv: { ...prev.hsv, a: alpha },
-        alpha
-      }));
+    (updatedColor: Color) => {
+      setCol(initColor(updatedColor));
+      onChange && onChange(col);
     },
     [col]
   );
 
-  const updateSaturation = (hsv: HsvColor) => {
-    const color = tinycolor({ h: hsv.h, s: hsv.s, v: hsv.v });
-
-    setCol({
-      hsl: { ...color.toHsl(), h: hsl.h, a: hsv.a },
-      rgb: { ...color.toRgb(), a: hsv.a },
-      hex: color.toHexString(),
-      hsv,
-      alpha: hsv.a
-    });
-  };
-
-  const updateHue = (hsl: HslColor) => {
-    const color = tinycolor({ h: hsl.h, s: hsl.s, l: hsl.l });
-
-    setCol({
-      hsl: { ...col.hsl, h: hsl.h },
-      rgb: { ...color.toRgb(), a: hsl.a },
-      hex: color.toHexString(),
-      hsv: { ...col.hsv, h: color.toHsv().h },
-      alpha: hsl.a
-    });
-  };
+  const updateAlpha = useCallback(
+    (alpha: number) => updateColor({ ...col.rgb, a: alpha }),
+    [col]
+  );
 
   const { rgb, hsl, hsv, hex, alpha } = col;
 
@@ -100,7 +64,7 @@ const ColorPicker = ({
     "--rpc-border-color": theme?.borderColor || themes.light.borderColor,
     "--rpc-border-radius": theme?.borderRadius || themes.light.borderRadius,
     "--rpc-box-shadow": theme?.boxShadow || themes.light.boxShadow,
-    "--rpc-width": theme?.width || themes.light.width
+    "--rpc-width": theme?.width || themes.light.width,
   } as React.CSSProperties;
 
   const colorVariables = {
@@ -114,19 +78,19 @@ const ColorPicker = ({
     "--rpc-hue-pointer": `${(hsl.h * 100) / 360}%`,
     "--rpc-alpha-pointer": `${alpha * 100}%`,
     "--rpc-saturation-pointer-top": `calc(${-(hsv.v * 100) + 100}% - 6px)`,
-    "--rpc-saturation-pointer-left": `calc(${hsv.s * 100}% - 6px)`
+    "--rpc-saturation-pointer-left": `calc(${hsv.s * 100}% - 6px)`,
   } as React.CSSProperties;
 
-  const handleHexInput = (val: string) => {
+  const handleHexChange = (val: string) => {
     if (!/^[0-9A-Fa-f]+$/.test(val)) return;
     const hex = tinycolor(`#${val}`);
-    console.log(hex);
+
     setCol({
       hex: `#${val}`,
       rgb: hex.toRgb(),
       hsl: hex.toHsl(),
       hsv: hex.toHsv(),
-      alpha: hex.getAlpha()
+      alpha: hex.getAlpha(),
     });
   };
 
@@ -141,7 +105,7 @@ const ColorPicker = ({
       style={{ ...variables, ...styles.container, ...colorVariables }}
       className={className}
     >
-      <Saturation hsl={hsl} onChange={updateSaturation} />
+      <Saturation hsl={hsl} onChange={updateColor} />
 
       <div style={styles.flex}>
         <div style={styles.valueWrapper}>
@@ -151,7 +115,7 @@ const ColorPicker = ({
         </div>
 
         <div style={styles.ranges}>
-          <Hue hsl={hsl} onChange={updateHue} />
+          <Hue hsl={hsl} onChange={updateColor} />
           {!hideAlpha && <Alpha onChange={updateAlpha} />}
         </div>
       </div>
@@ -164,7 +128,8 @@ const ColorPicker = ({
             label="Hex"
             size="large"
             prefix="#"
-            onChange={(val) => handleHexInput(val)}
+            onChange={handleHexChange}
+            onBlur={updateColor}
             maxLength={6}
             value={hex.replace("#", "")}
           />

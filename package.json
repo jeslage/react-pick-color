@@ -11,6 +11,7 @@
   "scripts": {
     "clean": "rm -rf build",
     "build": "yarn clean && rollup -c",
+    "build:watch": "yarn clean && rollup -c -w",
     "size": "yarn build && size-limit",
     "test": "jest",
     "prepare": "yarn build",
