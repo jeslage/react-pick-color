@@ -1,7 +1,7 @@
 {
   "name": "react-pick-color",
   "description": "A modern color picker for react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",
@@ -11,9 +11,12 @@
   "scripts": {
     "clean": "rm -rf build",
     "build": "yarn clean && rollup -c",
+    "build:watch": "yarn clean && rollup -c -w",
     "size": "yarn build && size-limit",
     "test": "jest",
-    "test:update": "jest -u"
+    "prepare": "yarn build",
+    "test:update": "jest -u",
+    "type-check": "tsc --pretty --noEmit"
   },
   "size-limit": [
     {

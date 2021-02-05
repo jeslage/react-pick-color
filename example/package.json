@@ -13,9 +13,12 @@
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-pick-color": "^1.0.1"
+  },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "build-storybook -o public",
+    "deploy": "yarn build && vercel --prod"
   }
 }

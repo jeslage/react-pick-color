@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## 1.0.0 - 2020-07-09
+## [1.0.1] - 2021-02-05
+
+### Fixed
+
+- [Issue #12](https://github.com/jeslage/react-pick-color/issues/12): Fixed color prop change not triggering state change
+
+## 1.0.0 - 2020-09-07
 
 - Initial release
 
-[unreleased]: https://github.com/jeslage/react-pick-color/compare/v1.0.0...develop
+[unreleased]: https://github.com/jeslage/react-pick-color/compare/v1.0.1...develop
+[1.0.1]: https://github.com/jeslage/react-pick-color/compare/v1.0.0...v1.0.1
