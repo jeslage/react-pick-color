@@ -43,8 +43,9 @@ const ColorPicker = ({
 
   const updateColor = useCallback(
     (updatedColor: Color) => {
-      setCol(initColor(updatedColor));
-      onChange && onChange(col);
+      const newColor = initColor(updatedColor);
+      setCol(newColor);
+      onChange && onChange(newColor);
     },
     [col]
   );
