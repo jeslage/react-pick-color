@@ -7254,9 +7254,9 @@ path-key@^3.1.0:
   integrity sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
@@ -7815,10 +7815,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pick-color@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.0.tgz#e7c6e38b29b764d119660e0f0066e1382e056110"
-  integrity sha512-TC0fcZcwXCsp/Y2cHtFX5gMF91cBgyG2C0P1YzqyGeG+LFDx0R2C1ni4a9BQCBN3iPkxfnIIgDAbyNJEa7CPGg==
+react-pick-color@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.2.tgz#decf84cf899a0d7087d17d106d9c929037e9231e"
+  integrity sha512-J8CjazY1Sz9MMy527lNWFtkR1f+Q3RmyACOXk92w5R5zlWaxxGVtJiI71KbVv3GnxkSizOacwLTiIQUz3CxbMQ==
   dependencies:
     tinycolor2 "^1.4.1"
 
