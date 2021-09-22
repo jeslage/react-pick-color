@@ -7815,10 +7815,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pick-color@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.0.tgz#e7c6e38b29b764d119660e0f0066e1382e056110"
-  integrity sha512-TC0fcZcwXCsp/Y2cHtFX5gMF91cBgyG2C0P1YzqyGeG+LFDx0R2C1ni4a9BQCBN3iPkxfnIIgDAbyNJEa7CPGg==
+react-pick-color@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.2.tgz#decf84cf899a0d7087d17d106d9c929037e9231e"
+  integrity sha512-J8CjazY1Sz9MMy527lNWFtkR1f+Q3RmyACOXk92w5R5zlWaxxGVtJiI71KbVv3GnxkSizOacwLTiIQUz3CxbMQ==
   dependencies:
     tinycolor2 "^1.4.1"
 
@@ -8966,9 +8966,9 @@ tmp@^0.0.33:
     os-tmpdir "~1.0.2"
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
