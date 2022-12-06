@@ -4023,9 +4023,9 @@ debug@^4.1.0, debug@^4.1.1:
     ms "^2.1.1"
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 dedent@^0.7.0:
   version "0.7.0"
@@ -7815,10 +7815,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pick-color@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.0.tgz#e7c6e38b29b764d119660e0f0066e1382e056110"
-  integrity sha512-TC0fcZcwXCsp/Y2cHtFX5gMF91cBgyG2C0P1YzqyGeG+LFDx0R2C1ni4a9BQCBN3iPkxfnIIgDAbyNJEa7CPGg==
+react-pick-color@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.2.tgz#decf84cf899a0d7087d17d106d9c929037e9231e"
+  integrity sha512-J8CjazY1Sz9MMy527lNWFtkR1f+Q3RmyACOXk92w5R5zlWaxxGVtJiI71KbVv3GnxkSizOacwLTiIQUz3CxbMQ==
   dependencies:
     tinycolor2 "^1.4.1"
 
