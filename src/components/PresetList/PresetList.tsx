@@ -17,7 +17,7 @@ const PresetList = ({ colors, onClick, currentColor }: PresetListProps) => {
       window.localStorage.getItem("rpc-presets") || "[]"
     ) as RgbColor[];
 
-    setLocalColors(local);
+    if (Array.isArray(local)) setLocalColors(local);
   }, []);
 
   useEffect(() => {

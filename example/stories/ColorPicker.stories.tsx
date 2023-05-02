@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ColorPicker, { themes, initColor } from "react-pick-color";
+import ColorPicker, { themes } from "react-pick-color";
 
 export default {
   title: "ColorPicker",

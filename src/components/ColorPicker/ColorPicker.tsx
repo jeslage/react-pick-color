@@ -114,7 +114,6 @@ const ColorPicker = ({
             <div style={styles.value} />
           </div>
         </div>
-
         <div style={styles.ranges}>
           <Hue hsl={hsl} onChange={updateColor} />
           {!hideAlpha && <Alpha onChange={updateAlpha} />}

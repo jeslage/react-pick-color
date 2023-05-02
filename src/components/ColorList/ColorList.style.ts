@@ -7,7 +7,7 @@ export const container: React.CSSProperties = {
   borderTop: "1px solid var(--rpc-border-color)",
   display: "grid",
   gridTemplateColumns: "repeat(10, 1fr)",
-  gridGap: "0.4rem"
+  gridGap: "0.4rem",
 };
 
 export const button: React.CSSProperties = {
@@ -22,7 +22,7 @@ export const button: React.CSSProperties = {
   overflow: "hidden",
   position: "relative",
   background: "none",
-  gridColumnEnd: "span 1"
+  gridColumnEnd: "span 1",
 };
 
 export const addButton: React.CSSProperties = {
@@ -37,13 +37,13 @@ export const addButton: React.CSSProperties = {
   cursor: "pointer",
   border: "none",
   borderRadius: "var(--rpc-border-radius)",
-  gridColumnEnd: "span 1"
+  gridColumnEnd: "span 1",
 };
 
 export const svg: React.CSSProperties = {
   height: "9px",
   width: "9px",
-  fill: "var(--rpc-color)"
+  fill: "var(--rpc-color)",
 };
 
 export const value = (color: RgbColor): React.CSSProperties => ({
@@ -53,7 +53,7 @@ export const value = (color: RgbColor): React.CSSProperties => ({
   right: "0px",
   bottom: "0px",
   left: "0px",
-  zIndex: 2
+  zIndex: 2,
 });
 
 export const checkboard: React.CSSProperties = {
@@ -65,5 +65,5 @@ export const checkboard: React.CSSProperties = {
   backgroundImage:
     'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAC9JREFUOBFjZGBgEAFifOANPkkmfJLEyI0awMAw8GHASERU4U0nA++FURdQISEBAFeUATP+HuV8AAAAAElFTkSuQmCC")',
   backgroundPosition: "left center",
-  zIndex: 1
+  zIndex: 1,
 };

@@ -31,7 +31,7 @@ const Input = ({
   onChange,
   onBlur,
 }: InputProps) => {
-  const width = size === "small" ? "33px" : "45px";
+  const width = size === "small" ? "42px" : "54px";
   return (
     <label style={styles.label}>
       <div style={styles.wrapper}>
