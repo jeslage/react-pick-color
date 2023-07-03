@@ -48,6 +48,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/github": "^9.0.3",
+    "@semantic-release/npm": "^10.0.4",
+    "@semantic-release/release-notes-generator": "^11.0.3",
     "@size-limit/preset-app": "^4.5.7",
     "@storybook/react": "^5.2.6",
     "@types/enzyme": "^3.10.4",
@@ -68,6 +72,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "^7.0.1",
     "rollup-plugin-typescript2": "^0.25.2",
+    "semantic-release": "^21.0.6",
     "size-limit": "^4.5.7",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
