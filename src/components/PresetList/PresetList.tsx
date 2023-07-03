@@ -20,12 +20,10 @@ const PresetList = ({ colors, onClick, currentColor }: PresetListProps) => {
     if (Array.isArray(local)) setLocalColors(local);
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem("rpc-presets", JSON.stringify(localColors));
-  }, [localColors]);
-
   const addPreset = useCallback(() => {
-    setLocalColors((prev) => [...prev, currentColor]);
+    const newPresets = [...localColors, currentColor];
+    window.localStorage.setItem("rpc-presets", JSON.stringify(newPresets));
+    setLocalColors(newPresets);
   }, [colors, currentColor]);
 
   return (
