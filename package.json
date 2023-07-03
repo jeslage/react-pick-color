@@ -10,11 +10,11 @@
   ],
   "scripts": {
     "clean": "rm -rf build",
-    "build": "yarn clean && rollup -c",
-    "build:watch": "yarn clean && rollup -c -w",
-    "size": "yarn build && size-limit",
+    "build": "npm run clean && rollup -c",
+    "build:watch": "npm run clean && rollup -c -w",
+    "size": "npm run build && size-limit",
     "test": "jest",
-    "prepare": "yarn build",
+    "prepare": "npm run build",
     "test:update": "jest -u",
     "type-check": "tsc --pretty --noEmit"
   },
