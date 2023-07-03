@@ -14,7 +14,7 @@
     "react-is": "^16.13.1"
   },
   "dependencies": {
-    "react-pick-color": "^1.0.3"
+    "react-pick-color": "1.0.4"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",

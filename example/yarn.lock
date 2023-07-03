@@ -7815,10 +7815,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pick-color@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.3.tgz#9f784fb8f41923509f979129670d3aa51243466d"
-  integrity sha512-NaUZfy+eGkcvqCFMj9p4HL891jpaggqIC9yFyHk0PjpISRyx3r8uAIxQLpfY9Yx6NMwIOntr1ClEPZp8mpIhDQ==
+react-pick-color@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-pick-color/-/react-pick-color-1.0.4.tgz#b38481ba328adc9b004d2b5dd03706367bd8317b"
+  integrity sha512-QrWsS1rSYtjjB/8jSOQTvNbNr0HKChu7TPO9N8jy2PREgO02OrLsl1lEUp2KVmZec6JpOyBoKQ32cQJEl7dswA==
   dependencies:
     tinycolor2 "^1.4.1"
 
