@@ -1,7 +1,7 @@
 {
   "name": "react-pick-color",
   "description": "A modern color picker for react",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",
@@ -14,7 +14,6 @@
     "build": "npm run clean && rollup -c --bundleConfigAsCjs",
     "build:watch": "npm run clean && rollup -c -w --bundleConfigAsCjs",
     "size": "npm run build && size-limit",
-    "prepare": "npm run build",
     "prettier": "prettier src --write",
     "type-check": "tsc --pretty --noEmit"
   },
