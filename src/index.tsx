@@ -1,7 +1,6 @@
-import ColorPicker from "./components/ColorPicker/ColorPicker";
-import themes from "./themes";
-import useColor from "./hooks/useColor";
-import { initColor } from "./components/ColorPicker/helper";
+import ColorPicker from './components/ColorPicker/ColorPicker';
+import themes from './themes';
+import { initColor } from './components/ColorPicker/helper';
 import {
   HslColor,
   HsvColor,
@@ -10,12 +9,11 @@ import {
   Theme,
   Color,
   ColorCombination,
-  ColorObject,
-} from "./types";
+  ColorObject
+} from './types';
 
 export {
   themes,
-  useColor,
   initColor,
   ColorPicker,
   HslColor,
@@ -25,6 +23,6 @@ export {
   Theme,
   Color,
   ColorCombination,
-  ColorObject,
+  ColorObject
 };
 export default ColorPicker;
