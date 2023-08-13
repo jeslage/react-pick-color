@@ -5,7 +5,7 @@ export const wrapper: React.CSSProperties = {
   border: '1px solid var(--rpc-border-color)',
   borderRadius: 'var(--rpc-border-radius)',
   margin: '0.1rem',
-  background: 'var(--rpc-inputBackground)'
+  background: 'var(--rpc-input-background)'
 };
 
 export const input: React.CSSProperties = {

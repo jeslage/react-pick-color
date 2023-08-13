@@ -56,7 +56,7 @@ const ColorPicker = ({
 
   const variables = {
     '--rpc-background': theme?.background || themes.light.background,
-    '--rpc-inputBackground': theme?.inputBackground || themes.light.inputBackground,
+    '--rpc-input-background': theme?.inputBackground || themes.light.inputBackground,
     '--rpc-color': theme?.color || themes.light.color,
     '--rpc-border-color': theme?.borderColor || themes.light.borderColor,
     '--rpc-border-radius': theme?.borderRadius || themes.light.borderRadius,

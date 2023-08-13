@@ -22,7 +22,7 @@ export const checkboard: React.CSSProperties = {
 };
 
 export const valueWrapper: React.CSSProperties = {
-  background: 'var(--rpc-inputBackground)',
+  background: 'var(--rpc-input-background)',
   borderRadius: 'var(--rpc-border-radius)'
 };
 export const value: React.CSSProperties = {

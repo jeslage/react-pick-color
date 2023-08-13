@@ -1,20 +1,18 @@
-const path = require("path");
-
-module.exports = {
-  stories: [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+/** @type { import('@storybook/react-webpack5').StorybookConfig } */
+const config = {
+  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions'
   ],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
-
-  typescript: {
-    check: false,
-    checkOptions: {},
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
-    }
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
+  },
+  docs: {
+    autodocs: 'tag'
   }
 };
+export default config;

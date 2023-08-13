@@ -8,7 +8,7 @@ export const container: React.CSSProperties = {
   position: 'relative',
   zIndex: 1,
   borderRadius: '4px',
-  background: 'var(--rpc-inputBackground)'
+  background: 'var(--rpc-input-background)'
 };
 
 export const alpha: React.CSSProperties = {
