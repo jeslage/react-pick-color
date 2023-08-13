@@ -117,8 +117,7 @@ const ThemedColorPicker = () => {
 ## Roadmap
 
 - [ ] Size optimization
-- [ ] Build little demo site and codesandboxes
-- [ ] Write more tests
+- [x] Build little demo site or codesandboxes
 - [ ] Remove tinycolor dependency
-- [ ] Add build pipeline
+- [x] Add build pipeline
 - [ ] Different CSS solution

@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
+import React, { useCallback } from 'react';
 
-import { HslColor } from "../../types";
+import { HslColor } from '../../types';
 
-import * as styles from "./Hue.style";
-import usePosition, { Position } from "../../hooks/usePosition";
+import * as styles from './Hue.style';
+import usePosition, { Position } from '../../hooks/usePosition';
 
 type HueProps = {
   hsl: HslColor;
@@ -12,8 +12,7 @@ type HueProps = {
 
 const Hue = ({ hsl, onChange }: HueProps) => {
   const handleMove = useCallback(
-    ({ left }: Position) =>
-      onChange && onChange({ h: 360 * left, s: hsl.s, l: hsl.l, a: hsl.a }),
+    ({ left }: Position) => onChange && onChange({ h: 360 * left, s: hsl.s, l: hsl.l, a: hsl.a }),
     [onChange]
   );
 
@@ -22,12 +21,7 @@ const Hue = ({ hsl, onChange }: HueProps) => {
   });
 
   return (
-    <div
-      style={styles.container}
-      ref={ref}
-      onTouchStart={handleStart}
-      onMouseDown={handleStart}
-    >
+    <div style={styles.container} ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
       <div style={styles.pointer}>
         <div style={styles.slider} />
       </div>

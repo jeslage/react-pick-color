@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState, useLayoutEffect } from "react";
+import { useRef, useCallback, useState, useLayoutEffect } from 'react';
 
 const limit = (number: number) => (number > 1 ? 1 : number < 0 ? 0 : number);
 
@@ -15,11 +15,11 @@ const usePosition = ({ onMove }: usePositionProps) => {
   const [dragging, setDragging] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const getPosition = useCallback((e) => {
+  const getPosition = useCallback(e => {
     if (!ref.current) return { left: 0, top: 0 };
 
     const { width, left, top, height } = ref.current.getBoundingClientRect();
-    const { pageX, pageY } = typeof e.pageX === "number" ? e : e.touches[0];
+    const { pageX, pageY } = typeof e.pageX === 'number' ? e : e.touches[0];
 
     return {
       left: limit((pageX - (left + window.pageXOffset)) / width),
@@ -28,7 +28,7 @@ const usePosition = ({ onMove }: usePositionProps) => {
   }, []);
 
   const handleMove = useCallback(
-    (e) => {
+    e => {
       e.preventDefault();
       if (ref.current) onMove(getPosition(e));
     },
@@ -36,7 +36,7 @@ const usePosition = ({ onMove }: usePositionProps) => {
   );
 
   const handleStart = useCallback(
-    (e) => {
+    e => {
       onMove(getPosition(e));
       setDragging(true);
     },
@@ -47,13 +47,11 @@ const usePosition = ({ onMove }: usePositionProps) => {
 
   const initEvents = useCallback(
     (dragged: boolean) => {
-      const event = dragged
-        ? document.addEventListener
-        : document.removeEventListener;
-      event("mousemove", handleMove);
-      event("touchmove", handleMove);
-      event("mouseup", handleEnd);
-      event("touchend", handleEnd);
+      const event = dragged ? document.addEventListener : document.removeEventListener;
+      event('mousemove', handleMove);
+      event('touchmove', handleMove);
+      event('mouseup', handleEnd);
+      event('touchend', handleEnd);
     },
     [handleMove, handleEnd]
   );

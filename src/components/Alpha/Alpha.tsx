@@ -1,7 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useCallback } from 'react';
 
-import * as styles from "./Alpha.style";
-import usePosition, { Position } from "../../hooks/usePosition";
+import * as styles from './Alpha.style';
+import usePosition, { Position } from '../../hooks/usePosition';
 
 type AlphaProps = {
   onChange?: (alpha: number) => void;
@@ -18,12 +18,7 @@ const Alpha = ({ onChange }: AlphaProps) => {
   });
 
   return (
-    <div
-      style={styles.container}
-      ref={ref}
-      onTouchStart={handleStart}
-      onMouseDown={handleStart}
-    >
+    <div style={styles.container} ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
       <div style={styles.alpha} />
       <div style={styles.checkboard} />
       <div style={styles.pointer}>

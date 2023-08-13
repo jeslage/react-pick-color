@@ -17,6 +17,7 @@
     "test": "jest",
     "prepare": "npm run build",
     "test:update": "jest -u",
+    "prettier": "prettier src --write",
     "type-check": "tsc --pretty --noEmit"
   },
   "size-limit": [
@@ -72,6 +73,7 @@
     "enzyme-to-json": "^3.4.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
+    "prettier": "^3.0.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "rollup": "^1.27.4",
     "rollup-plugin-commonjs": "^10.1.0",
