@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "clean": "rm -rf build",
+    "commit": "cz",
     "build": "npm run clean && rollup -c",
     "build:watch": "npm run clean && rollup -c -w",
     "size": "npm run build && size-limit",
@@ -28,6 +29,11 @@
       "limit": "8 KB"
     }
   ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jeslage/react-pick-color"
@@ -59,6 +65,8 @@
     "@types/react": "^16.9.12",
     "@types/tinycolor2": "^1.4.2",
     "babel-loader": "^8.0.6",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.3",
