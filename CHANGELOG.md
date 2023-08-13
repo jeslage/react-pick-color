@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+# [2.0.0] - 2023-08-13
+
+### Features
+
+- remove useColor hook ([cf09507](https://github.com/jeslage/react-pick-color/commit/cf0950706f699cfd5124aeb824639215569958c5))
+- remove useColor hook ([8bb2ccb](https://github.com/jeslage/react-pick-color/commit/8bb2ccb2dad2bb42790e49e3d8b44f5911accf34))
+- update peerDependencies for react 18 ([d607682](https://github.com/jeslage/react-pick-color/commit/d607682f1414057fa62fdb4ba63c36db310d68ab))
+
+### Reverts
+
+- Revert "feat: remove useColor hook" ([533d096](https://github.com/jeslage/react-pick-color/commit/533d096854c888edf5f4b4321196b0e71d6a9762))
+
+### BREAKING CHANGES
+
+- remove useColor hook due to no usage in component
+
 ## [1.0.4] - 2023-07-04
 
 ### Fix
@@ -35,7 +51,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[unreleased]: https://github.com/jeslage/react-pick-color/compare/v1.0.4...beta
+[unreleased]: https://github.com/jeslage/react-pick-color/compare/v2.0.0...beta
+[2.0.0]: https://github.com/jeslage/react-pick-color/compare/v1.0.4...v2.0.0
 [1.0.4]: https://github.com/jeslage/react-pick-color/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/jeslage/react-pick-color/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/jeslage/react-pick-color/compare/v1.0.1...v1.0.2
