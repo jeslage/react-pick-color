@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState, useLayoutEffect } from "react";
+import { useRef, useCallback, useState, useLayoutEffect } from 'react';
 
 const limit = (number: number) => (number > 1 ? 1 : number < 0 ? 0 : number);
 
@@ -15,20 +15,26 @@ const usePosition = ({ onMove }: usePositionProps) => {
   const [dragging, setDragging] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const getPosition = useCallback((e) => {
-    if (!ref.current) return { left: 0, top: 0 };
+  const getPosition = useCallback(
+    (e: MouseEvent | TouchEvent | React.MouseEvent | React.TouchEvent) => {
+      if (!ref.current) return { left: 0, top: 0 };
 
-    const { width, left, top, height } = ref.current.getBoundingClientRect();
-    const { pageX, pageY } = typeof e.pageX === "number" ? e : e.touches[0];
+      const { width, left, top, height } = ref.current.getBoundingClientRect();
+      const { pageX, pageY } =
+        (e as MouseEvent).pageX && typeof (e as MouseEvent).pageX === 'number'
+          ? (e as MouseEvent)
+          : (e as TouchEvent).touches[0];
 
-    return {
-      left: limit((pageX - (left + window.pageXOffset)) / width),
-      top: limit((pageY - (top + window.pageYOffset)) / height)
-    };
-  }, []);
+      return {
+        left: limit((pageX - (left + window.pageXOffset)) / width),
+        top: limit((pageY - (top + window.pageYOffset)) / height)
+      };
+    },
+    []
+  );
 
   const handleMove = useCallback(
-    (e) => {
+    (e: MouseEvent | TouchEvent) => {
       e.preventDefault();
       if (ref.current) onMove(getPosition(e));
     },
@@ -36,7 +42,7 @@ const usePosition = ({ onMove }: usePositionProps) => {
   );
 
   const handleStart = useCallback(
-    (e) => {
+    (e: React.MouseEvent | React.TouchEvent) => {
       onMove(getPosition(e));
       setDragging(true);
     },
@@ -47,13 +53,11 @@ const usePosition = ({ onMove }: usePositionProps) => {
 
   const initEvents = useCallback(
     (dragged: boolean) => {
-      const event = dragged
-        ? document.addEventListener
-        : document.removeEventListener;
-      event("mousemove", handleMove);
-      event("touchmove", handleMove);
-      event("mouseup", handleEnd);
-      event("touchend", handleEnd);
+      const event = dragged ? document.addEventListener : document.removeEventListener;
+      event('mousemove', handleMove);
+      event('touchmove', handleMove);
+      event('mouseup', handleEnd);
+      event('touchend', handleEnd);
     },
     [handleMove, handleEnd]
   );

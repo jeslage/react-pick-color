@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import * as styles from "./Input.style";
+import * as styles from './Input.style';
 
 type InputProps = {
   name: string;
   value: string | number;
-  type?: "number" | "text";
+  type?: 'number' | 'text';
   label: string;
   onChange: (value: string) => void;
   onBlur?: (value: string) => void;
@@ -14,24 +14,24 @@ type InputProps = {
   step?: number;
   prefix?: string;
   maxLength?: number;
-  size?: "small" | "large";
+  size?: 'small' | 'large';
 };
 
 const Input = ({
   name,
   value,
-  type = "text",
+  type = 'text',
   label,
   prefix,
   min,
   max,
   step,
   maxLength,
-  size = "small",
+  size = 'small',
   onChange,
-  onBlur,
+  onBlur
 }: InputProps) => {
-  const width = size === "small" ? "42px" : "54px";
+  const width = size === 'small' ? '42px' : '54px';
   return (
     <label style={styles.label}>
       <div style={styles.wrapper}>
@@ -41,8 +41,8 @@ const Input = ({
           type={type}
           name={name}
           value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onBlur={(e) => {
+          onChange={e => onChange(e.target.value)}
+          onBlur={e => {
             if (onBlur) return onBlur(e.target.value);
             onChange(e.target.value);
           }}

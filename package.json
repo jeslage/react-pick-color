@@ -10,12 +10,12 @@
   ],
   "scripts": {
     "clean": "rm -rf build",
-    "build": "npm run clean && rollup -c",
-    "build:watch": "npm run clean && rollup -c -w",
+    "commit": "cz",
+    "build": "npm run clean && rollup -c --bundleConfigAsCjs",
+    "build:watch": "npm run clean && rollup -c -w --bundleConfigAsCjs",
     "size": "npm run build && size-limit",
-    "test": "jest",
     "prepare": "npm run build",
-    "test:update": "jest -u",
+    "prettier": "prettier src --write",
     "type-check": "tsc --pretty --noEmit"
   },
   "size-limit": [
@@ -28,6 +28,11 @@
       "limit": "8 KB"
     }
   ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jeslage/react-pick-color"
@@ -43,8 +48,8 @@
     "url": "https://github.com/jeslage/react-pick-color/issues"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -52,30 +57,24 @@
     "@semantic-release/github": "^9.0.3",
     "@semantic-release/npm": "^10.0.4",
     "@semantic-release/release-notes-generator": "^11.0.3",
-    "@size-limit/preset-app": "^4.5.7",
-    "@storybook/react": "^5.2.6",
-    "@types/enzyme": "^3.10.4",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.24",
-    "@types/react": "^16.9.12",
+    "@size-limit/preset-app": "^8.2.6",
+    "@types/react": "^18.2.20",
     "@types/tinycolor2": "^1.4.2",
-    "babel-loader": "^8.0.6",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.4.3",
+    "babel-loader": "^9.1.3",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.9.0",
+    "prettier": "^3.0.1",
     "react-docgen-typescript-loader": "^3.6.0",
-    "rollup": "^1.27.4",
+    "rollup": "^3.28.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "^7.0.1",
-    "rollup-plugin-typescript2": "^0.25.2",
+    "rollup-plugin-typescript2": "^0.35.0",
     "semantic-release": "^21.0.6",
-    "size-limit": "^4.5.7",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.2"
+    "size-limit": "^8.2.6",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "tinycolor2": "^1.4.1"

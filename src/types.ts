@@ -14,12 +14,12 @@ export type ColorObject = {
 };
 
 export type ColorCombination =
-  | "analogous"
-  | "monochromatic"
-  | "splitcomplement"
-  | "triad"
-  | "tetrad"
-  | "complement";
+  | 'analogous'
+  | 'monochromatic'
+  | 'splitcomplement'
+  | 'triad'
+  | 'tetrad'
+  | 'complement';
 
 export type Theme = {
   background?: string;

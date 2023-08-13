@@ -1,9 +1,9 @@
-import React from "react";
-import tinycolor from "tinycolor2";
+import React from 'react';
+import tinycolor from 'tinycolor2';
 
-import * as styles from "./ColorList.style";
+import * as styles from './ColorList.style';
 
-import { RgbColor, Color } from "../../types";
+import { RgbColor, Color } from '../../types';
 
 type ColorListProps = {
   colors: Color[];
@@ -24,12 +24,7 @@ const ColorList = ({ colors, onClick, onAdd }: ColorListProps) => (
       const rgb = col.toRgb();
 
       return (
-        <button
-          key={index}
-          style={styles.button}
-          onClick={() => onClick(rgb)}
-          type="button"
-        >
+        <button key={index} style={styles.button} onClick={() => onClick(rgb)} type="button">
           <div style={styles.value(rgb)} />
           <div style={styles.checkboard} />
         </button>

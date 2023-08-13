@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useCallback } from "react";
-import tinycolor from "tinycolor2";
-import { Color, ColorObject, ColorCombination, Theme } from "../../types";
+import React, { useState, useEffect, useCallback } from 'react';
+import tinycolor from 'tinycolor2';
+import { Color, ColorObject, ColorCombination, Theme } from '../../types';
 
-import { initColor, getColorCombination } from "./helper";
-import themes from "../../themes";
+import { initColor, getColorCombination } from './helper';
+import themes from '../../themes';
 
-import Hue from "../Hue/Hue";
-import Alpha from "../Alpha/Alpha";
-import ColorList from "../ColorList/ColorList";
-import Saturation from "../Saturation/Saturation";
-import PresetList from "../PresetList/PresetList";
+import Hue from '../Hue/Hue';
+import Alpha from '../Alpha/Alpha';
+import ColorList from '../ColorList/ColorList';
+import Saturation from '../Saturation/Saturation';
+import PresetList from '../PresetList/PresetList';
 
-import * as styles from "./ColorPicker.style";
-import Input from "../Input/Input";
+import * as styles from './ColorPicker.style';
+import Input from '../Input/Input';
 
 export type ColorPickerProps = {
   theme?: Partial<Theme>;
@@ -33,7 +33,7 @@ const ColorPicker = ({
   hideAlpha,
   hideInputs,
   className,
-  combinations,
+  combinations
 }: ColorPickerProps) => {
   const [col, setCol] = useState<ColorObject>(initColor(color));
 
@@ -50,36 +50,32 @@ const ColorPicker = ({
     [col]
   );
 
-  const updateAlpha = useCallback(
-    (alpha: number) => updateColor({ ...col.rgb, a: alpha }),
-    [col]
-  );
+  const updateAlpha = useCallback((alpha: number) => updateColor({ ...col.rgb, a: alpha }), [col]);
 
   const { rgb, hsl, hsv, hex, alpha } = col;
 
   const variables = {
-    "--rpc-background": theme?.background || themes.light.background,
-    "--rpc-inputBackground":
-      theme?.inputBackground || themes.light.inputBackground,
-    "--rpc-color": theme?.color || themes.light.color,
-    "--rpc-border-color": theme?.borderColor || themes.light.borderColor,
-    "--rpc-border-radius": theme?.borderRadius || themes.light.borderRadius,
-    "--rpc-box-shadow": theme?.boxShadow || themes.light.boxShadow,
-    "--rpc-width": theme?.width || themes.light.width,
+    '--rpc-background': theme?.background || themes.light.background,
+    '--rpc-input-background': theme?.inputBackground || themes.light.inputBackground,
+    '--rpc-color': theme?.color || themes.light.color,
+    '--rpc-border-color': theme?.borderColor || themes.light.borderColor,
+    '--rpc-border-radius': theme?.borderRadius || themes.light.borderRadius,
+    '--rpc-box-shadow': theme?.boxShadow || themes.light.boxShadow,
+    '--rpc-width': theme?.width || themes.light.width
   } as React.CSSProperties;
 
   const colorVariables = {
-    "--rpc-hue": hsl.h,
-    "--rpc-red": rgb.r,
-    "--rpc-green": rgb.g,
-    "--rpc-blue": rgb.b,
-    "--rpc-hex": hex,
-    "--rpc-alpha": alpha,
-    "--rpc-rgba": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`,
-    "--rpc-hue-pointer": `${(hsl.h * 100) / 360}%`,
-    "--rpc-alpha-pointer": `${alpha * 100}%`,
-    "--rpc-saturation-pointer-top": `calc(${-(hsv.v * 100) + 100}% - 6px)`,
-    "--rpc-saturation-pointer-left": `calc(${hsv.s * 100}% - 6px)`,
+    '--rpc-hue': hsl.h,
+    '--rpc-red': rgb.r,
+    '--rpc-green': rgb.g,
+    '--rpc-blue': rgb.b,
+    '--rpc-hex': hex,
+    '--rpc-alpha': alpha,
+    '--rpc-rgba': `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`,
+    '--rpc-hue-pointer': `${(hsl.h * 100) / 360}%`,
+    '--rpc-alpha-pointer': `${alpha * 100}%`,
+    '--rpc-saturation-pointer-top': `calc(${-(hsv.v * 100) + 100}% - 6px)`,
+    '--rpc-saturation-pointer-left': `calc(${hsv.s * 100}% - 6px)`
   } as React.CSSProperties;
 
   const handleHexChange = (val: string) => {
@@ -91,21 +87,18 @@ const ColorPicker = ({
       rgb: hex.toRgb(),
       hsl: hex.toHsl(),
       hsv: hex.toHsv(),
-      alpha: hex.getAlpha(),
+      alpha: hex.getAlpha()
     });
   };
 
   const handleRgbaInput = (key: string, val: string) => {
-    if (val === "" || val.length > 3) return;
-    const newValue = key === "a" ? parseInt(val) / 100 : parseInt(val);
+    if (val === '' || val.length > 3) return;
+    const newValue = key === 'a' ? parseInt(val) / 100 : parseInt(val);
     updateColor({ ...rgb, [key]: newValue });
   };
 
   return (
-    <div
-      style={{ ...variables, ...styles.container, ...colorVariables }}
-      className={className}
-    >
+    <div style={{ ...variables, ...styles.container, ...colorVariables }} className={className}>
       <Saturation hsl={hsl} onChange={updateColor} />
 
       <div style={styles.flex}>
@@ -131,9 +124,9 @@ const ColorPicker = ({
             onChange={handleHexChange}
             onBlur={updateColor}
             maxLength={6}
-            value={hex.replace("#", "")}
+            value={hex.replace('#', '')}
           />
-          <div style={{ display: "flex" }}>
+          <div style={{ display: 'flex' }}>
             <Input
               value={rgb.r}
               label="R"
@@ -142,7 +135,7 @@ const ColorPicker = ({
               min={0}
               max={255}
               step={1}
-              onChange={(val) => handleRgbaInput("r", val)}
+              onChange={val => handleRgbaInput('r', val)}
             />
 
             <Input
@@ -153,7 +146,7 @@ const ColorPicker = ({
               min={0}
               max={255}
               step={1}
-              onChange={(val) => handleRgbaInput("g", val)}
+              onChange={val => handleRgbaInput('g', val)}
             />
 
             <Input
@@ -164,7 +157,7 @@ const ColorPicker = ({
               min={0}
               max={255}
               step={1}
-              onChange={(val) => handleRgbaInput("b", val)}
+              onChange={val => handleRgbaInput('b', val)}
             />
 
             {!hideAlpha && (
@@ -176,26 +169,17 @@ const ColorPicker = ({
                 min={0}
                 max={100}
                 step={1}
-                onChange={(val) => handleRgbaInput("a", val)}
+                onChange={val => handleRgbaInput('a', val)}
               />
             )}
           </div>
         </div>
       )}
 
-      {presets && (
-        <PresetList
-          colors={presets}
-          onClick={updateColor}
-          currentColor={col.rgb}
-        />
-      )}
+      {presets && <PresetList colors={presets} onClick={updateColor} currentColor={col.rgb} />}
 
       {combinations && (
-        <ColorList
-          colors={getColorCombination(col, combinations)}
-          onClick={updateColor}
-        />
+        <ColorList colors={getColorCombination(col, combinations)} onClick={updateColor} />
       )}
     </div>
   );

@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
+import React, { useCallback } from 'react';
 
-import { HslColor, HsvColor } from "../../types";
-import usePosition, { Position } from "../../hooks/usePosition";
+import { HslColor, HsvColor } from '../../types';
+import usePosition, { Position } from '../../hooks/usePosition';
 
-import * as styles from "./Saturation.style";
+import * as styles from './Saturation.style';
 
 export type SaturationProps = {
   hsl: HslColor;
@@ -27,12 +27,7 @@ const Saturation = ({ hsl, onChange }: SaturationProps) => {
   });
 
   return (
-    <div
-      style={styles.color}
-      ref={ref}
-      onTouchStart={handleStart}
-      onMouseDown={handleStart}
-    >
+    <div style={styles.color} ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
       <style>{`
         .saturation-white {
           background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
