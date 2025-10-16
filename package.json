@@ -1,7 +1,7 @@
 {
   "name": "react-pick-color",
   "description": "A modern color picker for react",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",

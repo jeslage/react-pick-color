@@ -1,3 +1,11 @@
+# [2.1.0](https://github.com/jeslage/react-pick-color/compare/v2.0.0...v2.1.0) (2025-10-16)
+
+
+### Features
+
+* update dependencies ([d2f3d95](https://github.com/jeslage/react-pick-color/commit/d2f3d9544b856d8dd2fd4c3384888a7a4cdc18b8))
+* update rollup and different vulnerable dependencies ([0df6545](https://github.com/jeslage/react-pick-color/commit/0df654581051e328450e3058cbc27c917192494c))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
