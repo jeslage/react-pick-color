@@ -3,3 +3,5 @@ build/
 __snapshots__
 coverage
 yarn-error.log
+*storybook.log
+storybook-static

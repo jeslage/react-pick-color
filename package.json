@@ -15,7 +15,10 @@
     "build:watch": "npm run clean && rollup -c -w --bundleConfigAsCjs",
     "size": "npm run build && size-limit",
     "prettier": "prettier src --write",
-    "type-check": "tsc --pretty --noEmit"
+    "type-check": "tsc --pretty --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "deploy-storybook": "npm run build-storybook && vercel --prod"
   },
   "size-limit": [
     {
@@ -62,6 +65,7 @@
     "@semantic-release/npm": "^13.0.0",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@size-limit/preset-app": "^11.2.0",
+    "@storybook/react-vite": "^9.1.11",
     "@types/react": "^19.2.2",
     "@types/tinycolor2": "^1.4.6",
     "babel-loader": "^10.0.0",
@@ -77,6 +81,7 @@
     "rollup-plugin-typescript2": "^0.36.0",
     "semantic-release": "^25.0.0",
     "size-limit": "^11.2.0",
+    "storybook": "^9.1.11",
     "tslib": "^2.8.1",
     "typescript": "^5.9.3"
   },

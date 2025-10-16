@@ -1,7 +1,8 @@
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import themes from './themes';
 import { initColor } from './components/ColorPicker/helper';
-import {
+
+import type {
   HslColor,
   HsvColor,
   RgbColor,
