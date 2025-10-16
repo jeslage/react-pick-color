@@ -1,7 +1,12 @@
 name: Release
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
   release:
@@ -19,7 +24,7 @@ jobs:
       - run: npm ci --legacy-peer-deps
       - run: npm audit signatures
       - run: npm run build
-      - run: npm run semantic-release
+      - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
